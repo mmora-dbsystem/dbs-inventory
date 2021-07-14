@@ -1,0 +1,9 @@
+//Instanciamos express...
+const express = require('express');
+//Instanciamos el modulo router de express...
+const router = express.Router();
+
+
+
+//Exportamos router...
+module.exports = router;
