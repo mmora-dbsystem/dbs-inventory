@@ -5,5 +5,16 @@ const router = express.Router();
 //Importamos la conexion de BD...
 const pool = require('../database');
 
+//Creamos una ruta para las peticiones GET, "localhost:4000/softwares/add"...
+router.get('/add', (req, res) => {
+    //Respondemos con el el siguiente archivo HBS...
+    res.render('softwares/add');
+});
+
+//Creamos una ruta para la peticion POS...
+router.post('/add', (req, res) => {
+    res.send('Recibido.');
+});
+
 //Exportamos router...
-module.exports = router;
+module.exports = router; 

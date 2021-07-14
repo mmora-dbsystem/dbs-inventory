@@ -44,5 +44,10 @@ creamos la carpeta database en la raiz del proyecto y en ella creamos los archiv
 En el archivo keys.js parametrisamos los datos de la BD...
 Editamos el archivo database.js con el string de conexion de la BD...
 
+En la carpeta views creamos una carpeta llamada softwares y en esta creamos una vista para la ruta add.hbs
+
+Creamos una carpeta en public CSS, y en ella creamos un fichero para los estilos styles.css
+
+creamos en la carpeta partials un archivo llamado navigation.hbs
 
 

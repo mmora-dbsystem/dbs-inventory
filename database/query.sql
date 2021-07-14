@@ -14,7 +14,7 @@ CREATE TABLE `programas` (
     `pro_det` VARCHAR(100),
     `pro_img` VARCHAR(100),
     `pro_url` VARCHAR(2500),
-    `pro_use` INT(11),
+    `pro_usu` INT(11),
     `pro_act` timestamp default current_timestamp,
     CONSTRAINT fk_usuario FOREIGN KEY (`pro_use`) REFERENCES `usuarios`(`use_id`)
 );

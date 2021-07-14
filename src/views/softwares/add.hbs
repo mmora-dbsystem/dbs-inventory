@@ -1,0 +1,58 @@
+{{!Creamos un contenedor}}
+<div class="container p-4">
+    {{!Creamos una fila para cada contenido}}
+    <div class="row">
+        {{!Creamos una columna de 4 unidades}}
+        <div class="col-md-4 mx-auto">
+            {{!Creamos una tarjeta}}
+            <div class="card ">
+                {{!Cuerpo de la tarjeta}}
+                <div class="card-body">
+                    {{!Ruta del formulario y metodo a usar}}
+                    <form action="/softwares/add" method="POST">
+                        {{!Campo para el nombre del programa}}
+                        <div class="form-group">
+                            <input type="text" name="programa" class="form-control" placeholder="Programa..." autofocus>
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para la version del programa}}
+                        <div class="form-group">
+                            <input type="text" name="version" class="form-control" placeholder="Version..." autofocus>
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para la descripcion del programa}}
+                        <textarea name="descripcion" rows="2" class="form-control" placeholder="Descripcion..."></textarea>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para la imagen del programa}}
+                        <div class="form-group">
+                            <input type="url" name="urlimagen" class="form-control" placeholder="URL de la imagen...">
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para la URL de descarga del programa}}
+                        <div class="form-group">
+                            <input type="url" name="urldescarga" class="form-control" placeholder="URL de descarga...">
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para el ID del equipo donde se instala el programa}}
+                        <div class="form-group">
+                            <input type="text" name="equipo" class="form-control" placeholder="Equipo..." autofocus>
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>                      
+                        {{!Boton de guardar}}
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                GUARDAR PROGRAMA
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
