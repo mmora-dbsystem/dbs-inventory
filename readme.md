@@ -50,4 +50,5 @@ Creamos una carpeta en public CSS, y en ella creamos un fichero para los estilos
 
 creamos en la carpeta partials un archivo llamado navigation.hbs
 
-
+Creamos dento de views/softwares un hbs llamado list
+1:37

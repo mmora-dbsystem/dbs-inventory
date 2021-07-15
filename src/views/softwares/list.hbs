@@ -1,0 +1,45 @@
+{{!Creamos un contenedor para nuestro programa}}
+<div class="containet p-4">
+    {{!Creamos una fila}}
+    <div class="row">
+        {{!#each es para recorrer una lista}}
+       {{#each programas}}
+       {{!Creamos una columna de 3 unidades}}
+        <div class="col-md-3">
+            {{!Creamos una tarjeta para nuestro programa}}
+            <div class="card text-center">
+                {{!Creamos el titulo de nuestra tarjeta}}
+                <div class="card-body">
+                    {{!Asignamos un hipervinculo con el campo de la URL de descarga}}
+                    <a href="{{pro_url}}">
+                        {{!Marquillamos el tipo de titulo}}
+                        <h3>
+                            {{!Colocamos el nombre del programa}}
+                            <div class="card-tittle text-uppercase">
+                                {{pro_nom}}
+                            </div>
+                        </h3>
+                    </a>
+                    {{!Colocamos la descripcion del programa}}
+                    <p class="m-2">
+                        {{pro_det}}
+                    </p>
+                    {{!Colocamos la fecha de creacion o actualizacion de la informacion del programa}}
+                    <p>
+                        {{!Invocamos el metodo timeago para la traduccion de la fecha}}
+                        {{timeago pro_act}}
+                    </p>
+                    {{!Boton para eliminar}}
+                    <a href="/softwares/delete/{{pro_id}}" class="btn btn-danger">
+                        Eliminar
+                    </a>
+                    {{!Boton para editar}}
+                    <a href="" class="btn btn-secondary">
+                        Editar
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

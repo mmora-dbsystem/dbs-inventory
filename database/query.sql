@@ -1,11 +1,11 @@
 CREATE DATABASE dbs_inventory;
 USE dbs_inventory;
 CREATE TABLE `usuarios` (
-    `use_id` INT(11) NOT NULL auto_increment PRIMARY KEY,
-    `use_nom` VARCHAR( 20 ) NOT NULL ,
-    `use_ape` VARCHAR( 20 ) NOT NULL ,
-    `use_cor` VARCHAR( 20 ) NOT NULL ,
-    `use_cla` VARCHAR( 100 ) NOT NULL 
+    `usu_id` INT(11) NOT NULL auto_increment PRIMARY KEY,
+    `usu_nom` VARCHAR( 20 ) NOT NULL ,
+    `usu_ape` VARCHAR( 20 ) NOT NULL ,
+    `usu_cor` VARCHAR( 20 ) NOT NULL ,
+    `usu_cla` VARCHAR( 100 ) NOT NULL 
 );
 CREATE TABLE `programas` (
     `pro_id` INT(11) NOT NULL auto_increment PRIMARY KEY,
@@ -16,6 +16,6 @@ CREATE TABLE `programas` (
     `pro_url` VARCHAR(2500),
     `pro_usu` INT(11),
     `pro_act` timestamp default current_timestamp,
-    CONSTRAINT fk_usuario FOREIGN KEY (`pro_use`) REFERENCES `usuarios`(`use_id`)
+    CONSTRAINT fk_usuario FOREIGN KEY (`pro_usu`) REFERENCES `usuarios`(`usu_id`)
 );
 DESCRIBE usuarios;
