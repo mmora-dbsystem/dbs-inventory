@@ -34,10 +34,26 @@
                         Eliminar
                     </a>
                     {{!Boton para editar}}
-                    <a href="" class="btn btn-secondary">
+                    <a href="/softwares/edit/{{pro_id}}" class="btn btn-secondary">
                         Editar
                     </a>
                 </div>
+            </div>
+        </div>
+        {{!Si no existen programas realice la siguiente accion}}
+        {{else}}
+        {{!Si no hay enlaces muestre lo siguiente}}
+        <div class="col-md4 mx-auto">
+            {{!}}
+            <div class="card card-body text-center">
+                {{!}}
+                <p>
+                    No existen programas para este equipo, por favor agrega uno.
+                </p>
+                {{!}}
+                <a href="/softwares/add">
+                    Agregar programa para este equipo.
+                </a>
             </div>
         </div>
         {{/each}}
