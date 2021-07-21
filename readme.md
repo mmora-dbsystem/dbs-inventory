@@ -54,4 +54,7 @@ Creamos dento de views/softwares un hbs llamado list
 
 creamos el archivo edit.hbs en views/software
 
-1:45
+Creamos en partials un archivo para los mensajes messages.hbs
+
+USUARIOS
+

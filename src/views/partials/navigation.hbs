@@ -1,17 +1,31 @@
 {{!Navbar importado de botstrap}}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="#">Pricing</a>
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      {{!Colocamos el titulo de nuestra aplicacion}}
+      <a class="navbar-brand" href="/home">DBS Inventory</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+          {{!Item para las URLS de soporte}}
+          <li class="nav-link">
+            <a  class="nav-link"aria-current="page" href="/urls">URL's</a>
+          </li>
+          {{!Item para el SW Base de los equipos}}
+          <li class="nav-link">
+            <a  class="nav-link"aria-current="page" href="/softwares/">SW Base</a>
+          </li>
+          {{!Item para el inventario de HW}}
+          <li class="nav-link">
+            <a  class="nav-link"aria-current="page" href="/inventariohw">Inventario HW</a>
+          </li>
+          {{!Item para el inventario de SW}}
+          <li class="nav-link">
+            <a  class="nav-link"aria-current="page" href="/inventariosw">Inventario SW</a>
+          </li>
+        </ul>
       </div>
     </div>
-  </div>
 </nav>

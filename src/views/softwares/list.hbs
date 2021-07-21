@@ -1,10 +1,20 @@
 {{!Creamos un contenedor para nuestro programa}}
-<div class="containet p-4">
+<div class="containet p-3">
     {{!Creamos una fila}}
     <div class="row">
+        {{!Creamos un boton para agregar un nuevo sw basico}}
+        <div class="d-grid gap-2 col-2 mx-auto">
+            {{!Boton para eliminar}}
+            <a href="/softwares/add" class="btn btn-primary">
+                Agregar programa
+            </a>
+        </div>
+        {{!Creamos un espacio entre el boton y los programas}}
+        <p>
+        </p>
         {{!#each es para recorrer una lista}}
-       {{#each programas}}
-       {{!Creamos una columna de 3 unidades}}
+        {{#each programas}}
+        {{!Creamos una columna de 3 unidades}}
         <div class="col-md-3">
             {{!Creamos una tarjeta para nuestro programa}}
             <div class="card text-center">
@@ -43,17 +53,13 @@
         {{!Si no existen programas realice la siguiente accion}}
         {{else}}
         {{!Si no hay enlaces muestre lo siguiente}}
-        <div class="col-md4 mx-auto">
+        <div class="col-md4 p-3">
             {{!}}
-            <div class="card card-body text-center">
+            <div class="card card-body d-grid gap-2 col-6 mx-auto text-center">
                 {{!}}
                 <p>
                     No existen programas para este equipo, por favor agrega uno.
                 </p>
-                {{!}}
-                <a href="/softwares/add">
-                    Agregar programa para este equipo.
-                </a>
             </div>
         </div>
         {{/each}}
