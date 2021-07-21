@@ -58,3 +58,6 @@ Creamos en partials un archivo para los mensajes messages.hbs
 
 USUARIOS
 
+creamos la carpeta auth en views, y en ella creamos el archivo de registro de usuarios signup.hbs
+
+2:17
