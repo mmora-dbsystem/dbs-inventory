@@ -60,4 +60,8 @@ USUARIOS
 
 creamos la carpeta auth en views, y en ella creamos el archivo de registro de usuarios signup.hbs
 
-2:17
+Creamos un archivo llamado pasport.js en la carpeta lib
+
+creamos el archivo helpers.js para reuso de codigo en la carpeta lib 
+2:50
+
