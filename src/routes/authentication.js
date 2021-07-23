@@ -27,8 +27,8 @@ router.post('/signup', passport.authenticate('local.signup', {
 
 //Creamos la ruta PROFILE...
 router.get('/profile', (req, res) => {
-    //Enviamos la siguiente respuesta...
-    res.send('Este es tu profile');
+    //Renderizamos la vista profile.hbs
+    res.render('profile');
 });
 
 

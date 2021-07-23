@@ -43,22 +43,6 @@ passport.use('local.signup', new LocalStrategy({
 }));
 
 
-//Serializamos nuestro usuario...
-passport.serializeUser((usu_cor, done) => {
-    //Enviamos el IS para guardar la sesion...
-    done(null, usu_cor.usu_id);
-});
-
-
-//Deserializamos nuestro usuario...
-passport.deserializeUser(async (usu_id, done) => {
-    //Creamos una constante con el resultado de la consulta del usuario logueado...
-    const row = await pool.query('SELECT * FROM usuarios WHERE usu_id = ?', [usu_id]);
-    //Continuamos con el arreglo obtenido...
-    done(null, row[0]);
-});
-
-
 //Creamos el logueo de forma local...
 passport.use('local.signin', new LocalStrategy({
     //Recibimos el usuario...
@@ -68,14 +52,14 @@ passport.use('local.signin', new LocalStrategy({
     //Habilitamos el pasar mas datos...
     passReqToCallback: true
 }, async(req, usu_cor, usu_cla, done) => {
-    /**/
+    /*
     //Validamos por consola...
     console.log(req.body);
     //Validamos por consola...
     console.log(usu_cor);
     //Validamos por consola...
     console.log(usu_cla);
-    
+    */
    //Validamos el usuario que esta iniciando sesion...
     const rows = await pool.query('SELECT * FROM usuarios WHERE usu_cor = ?', [usu_cor]);
     //Validamos si el usuario encontrado existe...
@@ -96,5 +80,22 @@ passport.use('local.signin', new LocalStrategy({
         //En caso de usuario no encontrado...
         return done (null, false, req.flash('MensajeError', 'ERROR: Usuario no existe.'));
     }
-    console.log(row[0]);
+    //console.log(row[0]);
 }));
+
+
+//Serializamos nuestro usuario...
+passport.serializeUser((usu_cor, done) => {
+    //Enviamos el IS para guardar la sesion...
+    done(null, usu_cor.usu_id);
+});
+
+
+
+//Deserializamos nuestro usuario...
+passport.deserializeUser(async (vId, done) => {
+    //Creamos una constante con el resultado de la consulta del usuario logueado...
+    const row = await pool.query('SELECT * FROM usuarios WHERE usu_id = ?', [vId]);
+    //Continuamos con el arreglo obtenido...
+    done(null, row[0]);
+});

@@ -68,4 +68,4 @@ procederemos a crear una vista para el signin en la carpeta views
 
 Creamos dentro de public una carpeta llamada img, y en ella almacenamos un logo para la aplicacion llamado logo.png
 
-311
+creamos dentro de view el archivo llamado profile.hbs
