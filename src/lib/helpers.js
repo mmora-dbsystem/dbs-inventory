@@ -19,7 +19,7 @@ helpers.matchPassword = async (usu_cla, SAVE_usu_cla) => {
     //Validamos la comparacion a travez de un TryCatch
     try{
          //Compara la clave digitada con la que esta almacenada en la BD...
-        await bcrypt.compare(usu_cla, SAVE_usu_cla);
+        return await bcrypt.compare(usu_cla, SAVE_usu_cla);
     }catch(e){
         //Mostramos por consola el error generado... 
         console.log(e);

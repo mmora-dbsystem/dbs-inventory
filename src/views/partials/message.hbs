@@ -57,3 +57,43 @@
     </div>
 </div>
 {{/if}}
+
+{{!Validamos que el mensaje a mostrar sea el de mensaje}}
+{{#if MensajeError}}
+{{!Creamos un contenedor con padding 1}}
+<div class="container p-1">
+    {{!Creamos una fila}}
+    <div class="row">
+        {{!Centramos el texto}}
+        <div class="text-center">
+            {{!Generamos la alerta para el mensaje}}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{!Invocamos el mensaje a mostrar}}
+                {{MensajeError}}
+                {{!Generamos un boton para cerrar la alerta o el mensaje}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+{{!Validamos que el mensaje a mostrar sea el de mensaje}}
+{{#if MensajeOK}}
+{{!Creamos un contenedor con padding 1}}
+<div class="container p-1">
+    {{!Creamos una fila}}
+    <div class="row">
+        {{!Centramos el texto}}
+        <div class="text-center">
+            {{!Generamos la alerta para el mensaje}}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{!Invocamos el mensaje a mostrar}}
+                {{MensajeOK}}
+                {{!Generamos un boton para cerrar la alerta o el mensaje}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}

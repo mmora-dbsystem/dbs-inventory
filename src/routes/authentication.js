@@ -31,5 +31,27 @@ router.get('/profile', (req, res) => {
     res.send('Este es tu profile');
 });
 
+
+//Creamos la ruta para el logueo para el metodo GET...
+router.get('/signin', (req, res) =>{
+    //Renderisamos la vista de signin...
+    res.render('auth/signin');
+});
+
+
+//Creamos la ruta para el logueo para el metodo POST...
+router.post('/signin', (req,res, next) => {
+    //Usamos local.signin...
+    passport.authenticate('local.signin', {
+        //Si autentica OK...
+        successRedirect: '/profile',
+        //Si arroja error...
+        failureRedirect: '/signin', 
+        //Permitimos el envio de mensajes...
+        failureFlash: true
+    })(req,res, next);
+});
+
+
 //Exportamos router...
 module.exports = router;

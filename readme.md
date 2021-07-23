@@ -63,5 +63,9 @@ creamos la carpeta auth en views, y en ella creamos el archivo de registro de us
 Creamos un archivo llamado pasport.js en la carpeta lib
 
 creamos el archivo helpers.js para reuso de codigo en la carpeta lib 
-2:50
 
+procederemos a crear una vista para el signin en la carpeta views
+
+Creamos dentro de public una carpeta llamada img, y en ella almacenamos un logo para la aplicacion llamado logo.png
+
+311
