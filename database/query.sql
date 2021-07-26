@@ -4,7 +4,7 @@ CREATE TABLE `usuarios` (
     `usu_id` INT(11) NOT NULL auto_increment PRIMARY KEY,
     `usu_nom` VARCHAR( 20 ) NOT NULL ,
     `usu_ape` VARCHAR( 20 ) NOT NULL ,
-    `usu_cor` VARCHAR( 20 ) NOT NULL ,
+    `usu_cor` VARCHAR( 100 ) NOT NULL ,
     `usu_cla` VARCHAR( 100 ) NOT NULL 
 );
 CREATE TABLE `programas` (

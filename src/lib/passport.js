@@ -65,13 +65,13 @@ passport.use('local.signin', new LocalStrategy({
     //Validamos si el usuario encontrado existe...
     if (rows.length > 0) {
         //Creamos una variable para el usuario encontrado...
-        const usuario = rows[0];
+        const user = rows[0];
         //Le pasamos la clave capturada al validador de cifrado de claves...
-        const validePassword = await helpers.matchPassword(usu_cla, usuario.usu_cla);
+        const validePassword = await helpers.matchPassword(usu_cla, user.usu_cla);
         //Validamos si la clave es correcta
         if(validePassword){
             //USU y CLA OK, Pasamos los datos...
-            done (null, usuario, req.flash('MensajeOK', 'Bienvenid@' + usuario.usu_nom + ' ' + usuario.usu_ape + '.'));
+            done (null, user, req.flash('MensajeOK', 'Bienvenid@: ' + user.usu_nom + ' ' + user.usu_ape + '.'));
         } else {
             //En caso de error en clave...
             done(null, false, req.flash('MensajeError', 'ERROR: Contraseña incorrecta.'));
@@ -85,17 +85,26 @@ passport.use('local.signin', new LocalStrategy({
 
 
 //Serializamos nuestro usuario...
-passport.serializeUser((usu_cor, done) => {
+passport.serializeUser((user, done) => {
     //Enviamos el IS para guardar la sesion...
-    done(null, usu_cor.usu_id);
+    done(null, user.usu_id);
+    
+
+    console.log('A: ' + user);
+    console.log('B: ' + user.usu_id);
+
 });
 
 
-
 //Deserializamos nuestro usuario...
-passport.deserializeUser(async (vId, done) => {
+passport.deserializeUser(async (usu_id, done) => {
     //Creamos una constante con el resultado de la consulta del usuario logueado...
-    const row = await pool.query('SELECT * FROM usuarios WHERE usu_id = ?', [vId]);
+    const row = await pool.query('SELECT * FROM usuarios WHERE usu_id = ?', [usu_id]);
+
+
+    console.log('C: ' + usu_id);
+    console.log('D: ' + row[0].usu_id);
+
     //Continuamos con el arreglo obtenido...
     done(null, row[0]);
 });
