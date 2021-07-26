@@ -4,15 +4,18 @@ const express = require('express');
 const router = express.Router();
 //Importamos la conexion de BD...
 const pool = require('../database');
+//Importamos el metodo autentications para asegurar las trutas...
+const { isLoggedIn } = require('../lib/auth');
+
 
 //Creamos una ruta /add para las peticiones GET, "localhost:4000/softwares/add"...
-router.get('/add', (req, res) => {
+router.get('/add', isLoggedIn, (req, res) => {
     //Renderisamos la vista con el siguiente archivo HBS...
     res.render('softwares/add');
 });
 
 //Creamos una ruta /add para la peticion POS...
-router.post('/add', async (req, res) => {
+router.post('/add', isLoggedIn, async (req, res) => {
     /*
     //Muestra por consola la informacion enviada...
     console.log(req.body);
@@ -43,7 +46,7 @@ router.post('/add', async (req, res) => {
 });
 
 //Creamos la ruta /softwares para la peticion GET...
-router.get('/', async (req, res) => {
+router.get('/', isLoggedIn, async (req, res) => {
     //Creamos una constante PROGRAMAS donde se almacenara el query ejecutado...
     const programas = await pool.query('SELECT * FROM programas');
     /*
@@ -57,7 +60,7 @@ router.get('/', async (req, res) => {
 });
 
 //Creamos la ruta /delete para la peticion GET...
-router.get('/delete/:pro_id', async (req, res) => {
+router.get('/delete/:pro_id', isLoggedIn, async (req, res) => {
     /*
     //Mostramos el resultado por consola...
     console.log(req.params.pro_id);
@@ -76,7 +79,7 @@ router.get('/delete/:pro_id', async (req, res) => {
 
 
 //Creamos la ruta /edit para la peticion GET
-router.get('/edit/:pro_id', async (req, res) => {
+router.get('/edit/:pro_id', isLoggedIn, async (req, res) => {
     /*
     //Mostramos el resultado por consola...
     const id = req.params.pro_id;
@@ -101,7 +104,7 @@ router.get('/edit/:pro_id', async (req, res) => {
 
 
 //Creamos la ruta /edit para la peticion POSY
-router.post('/edit/:pro_id', async (req, res) => {
+router.post('/edit/:pro_id', isLoggedIn, async (req, res) => {
     //Creamos una constante para el ID que se recivira al momento de editar el programa...
     const id = req.params.pro_id;
     //Asignamos los campos a guardar en la propiedad req.body...

@@ -1,31 +1,45 @@
 {{!Navbar importado de botstrap}}
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      {{!Colocamos el titulo de nuestra aplicacion}}
-      <a class="navbar-brand" href="/home">DBS Inventory</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <ul class="navbar-nav">
-          {{!Item para las URLS de soporte}}
-          <li class="nav-link">
-            <a  class="nav-link"aria-current="page" href="/urls">URL's</a>
-          </li>
-          {{!Item para el SW Base de los equipos}}
-          <li class="nav-link">
-            <a  class="nav-link"aria-current="page" href="/softwares/">SW Base</a>
-          </li>
-          {{!Item para el inventario de HW}}
-          <li class="nav-link">
-            <a  class="nav-link"aria-current="page" href="/inventariohw">Inventario HW</a>
-          </li>
-          {{!Item para el inventario de SW}}
-          <li class="nav-link">
-            <a  class="nav-link"aria-current="page" href="/inventariosw">Inventario SW</a>
-          </li>
-        </ul>
-      </div>
+  <div class="container-fluid">
+    {{!Colocamos el titulo de nuestra aplicacion}}
+    <a class="navbar-brand" href="/">DBS Inventory</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav">
+        {{!Validamos si hay logueo}}
+        {{#if user}}
+        {{!Item para las URLS de soporte}}
+        <li class="nav-link">
+          <a class="nav-link" aria-current="page" href="/urls">URL's</a>
+        </li>
+        {{!Item para el SW Base de los equipos}}
+        <li class="nav-link">
+          <a class="nav-link" aria-current="page" href="/softwares/">SW Base</a>
+        </li>
+        {{!Item para el inventario de HW}}
+        <li class="nav-link">
+          <a class="nav-link" aria-current="page" href="/inventariohw">Inventario HW</a>
+        </li>
+        {{!Item para el inventario de SW}}
+        <li class="nav-link">
+          <a class="nav-link" aria-current="page" href="/inventariosw">Inventario SW</a>
+        </li>
+        <li class="nav-link">
+          <a class="nav-link" aria-current="page" href="/profile">Perfil</a>
+        </li>
+        <li class="nav-link">
+          <a class="nav-link" aria-current="page" href="/logout">Cerrar Sesion</a>
+        </li>
+        {{!}}
+        {{else}}
+        <li class="nav-link">
+          <a class="nav-link" aria-current="page" href="/signin">Iniciar Sesion</a>
+        </li>
+        {{/if}}
+      </ul>
     </div>
+  </div>
 </nav>

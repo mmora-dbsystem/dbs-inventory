@@ -6,7 +6,7 @@ const router = express.Router();
 //Definimos la ruta inicial: "Este se utiliza en index.js //Rutas"
 router.get('/', (req, res) => {
     //Enviamos un mensaje
-    res.send('Hola mundo');
+    res.render('index');
 })
 
 //Exportamos router...
