@@ -74,4 +74,3 @@ Creamos el archivo llamado auth.js en lib
 
 Creamos un archivo de index.hbs en las vistas
 
-3:25

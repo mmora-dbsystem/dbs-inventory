@@ -88,11 +88,6 @@ passport.use('local.signin', new LocalStrategy({
 passport.serializeUser((user, done) => {
     //Enviamos el IS para guardar la sesion...
     done(null, user.usu_id);
-    
-
-    console.log('A: ' + user);
-    console.log('B: ' + user.usu_id);
-
 });
 
 
@@ -100,11 +95,6 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser(async (usu_id, done) => {
     //Creamos una constante con el resultado de la consulta del usuario logueado...
     const row = await pool.query('SELECT * FROM usuarios WHERE usu_id = ?', [usu_id]);
-
-
-    console.log('C: ' + usu_id);
-    console.log('D: ' + row[0].usu_id);
-
     //Continuamos con el arreglo obtenido...
     done(null, row[0]);
 });

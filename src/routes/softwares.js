@@ -29,7 +29,8 @@ router.post('/add', isLoggedIn, async (req, res) => {
         pro_det,
         pro_img,
         pro_url,
-        pro_com
+        //Relaciona los programas contra el usuario...
+        pro_com:req.user.usu_id
     };
     //Enviamos nuestra informacion a la BD...
     await pool.query('INSERT INTO programas set ?', [newSoftware]);
@@ -48,7 +49,7 @@ router.post('/add', isLoggedIn, async (req, res) => {
 //Creamos la ruta /softwares para la peticion GET...
 router.get('/', isLoggedIn, async (req, res) => {
     //Creamos una constante PROGRAMAS donde se almacenara el query ejecutado...
-    const programas = await pool.query('SELECT * FROM programas');
+    const programas = await pool.query('SELECT * FROM programas WHERE pro_com= ?', [req.user.usu_id]);
     /*
     //Mostramos el resultado por consola...
     console.log(programas);
@@ -116,7 +117,8 @@ router.post('/edit/:pro_id', isLoggedIn, async (req, res) => {
         pro_det,
         pro_img,
         pro_url,
-        pro_com
+        //Adiciona el ID del usuario
+        pro_com:req.user.usu_id
     };
     /*
     //Muestra por consola...
