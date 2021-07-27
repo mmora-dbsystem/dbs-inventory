@@ -1,21 +1,125 @@
 CREATE DATABASE dbs_inventory;
 USE dbs_inventory;
 CREATE TABLE `usuarios` (
-    `usu_id` INT(11) NOT NULL auto_increment PRIMARY KEY,
-    `usu_nom` VARCHAR( 20 ) NOT NULL ,
-    `usu_ape` VARCHAR( 20 ) NOT NULL ,
+    `usu_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
+    `usu_nom` VARCHAR( 100 ) NOT NULL ,
+    `usu_ape` VARCHAR( 100 ) NOT NULL ,
     `usu_cor` VARCHAR( 100 ) NOT NULL ,
-    `usu_cla` VARCHAR( 100 ) NOT NULL 
+    `usu_cla` VARCHAR( 100 ) NOT NULL ,
+    `usu_tus` VARCHAR( 100 ) NOT NULL 
+);
+CREATE TABLE `tipo_de_usuario` (
+    `tus_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
+    `tus_det` VARCHAR( 100 ) NOT NULL ,
+);
+CREATE TABLE `urls` (
+    `url_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
+    `url_nom` VARCHAR( 100 ) NOT NULL ,
+    `url_url` VARCHAR( 100 ) NOT NULL ,
+    `url_det` VARCHAR( 100 ) NOT NULL ,
+    `url_usu` VARCHAR( 100 ) NOT NULL ,
+    `url_cla` VARCHAR( 100 ) NOT NULL ,
+    `url_act` timestamp default current_timestamp 
 );
 CREATE TABLE `programas` (
-    `pro_id` INT(11) NOT NULL auto_increment PRIMARY KEY,
+    `pro_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
     `pro_nom` VARCHAR(100),
     `pro_ver` VARCHAR(100),
     `pro_det` VARCHAR(100),
     `pro_img` VARCHAR(100),
     `pro_url` VARCHAR(2500),
-    `pro_com` INT(11),
-    `pro_act` timestamp default current_timestamp--,
-    --CONSTRAINT fk_usuario FOREIGN KEY (`pro_com`) REFERENCES `usuarios`(`usu_id`)
+    `pro_com` INT(100),
+    `pro_act` timestamp default current_timestamp
 );
-DESCRIBE usuarios;
+CREATE TABLE `inventario_hw_portatiles` (
+    `ihp_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
+    `ihp_est` INT(100),
+    `ihp_hma` VARCHAR(100),
+    `ihp_hmo` VARCHAR(100),
+    `ihp_hse` VARCHAR(100),
+    `ihp_hmp` VARCHAR(100),
+    `ihp_hvp` VARCHAR(100),
+    `ihp_hap` VARCHAR(100),
+    `ihp_hmt` VARCHAR(100),
+    `ihp_hmr` VARCHAR(100),
+    `ihp_hdt` VARCHAR(100),
+    `ihp_hdr` VARCHAR(100),
+    `ihp_hme` VARCHAR(100),
+    `ihp_hmw` VARCHAR(100),
+    `ihp_dar` VARCHAR(100),
+    `ihp_dap` VARCHAR(100),
+    `ihp_dag` VARCHAR(100),
+    `ihp_dac` VARCHAR(100),
+    `ihp_dat` VARCHAR(100),
+    `ihp_dab` VARCHAR(100),
+    `ihp_daa` VARCHAR(100),
+    `ihp_dam` VARCHAR(100),    
+    `ihp_ave` VARCHAR(100),
+    `ihp_afc` timestamp default current_timestamp,
+    `ihp_aco` VARCHAR(100),
+    `ihp_aga` timestamp default current_timestamp,
+    `ihp_ias` VARCHAR(100),
+    `ihp_ico` VARCHAR(100),
+    `ihp_ica` VARCHAR(100),
+    `ihp_iar` VARCHAR(100),
+    `ihp_ipr` VARCHAR(100),
+    `ihp_ias` timestamp default current_timestamp
+);
+CREATE TABLE `inventario_hw_sobremesa` (
+    `ihs_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
+    `ihs_est` INT(100),
+    `ihs_hma` VARCHAR(100),
+    `ihs_hmo` VARCHAR(100),
+    `ihs_hse` VARCHAR(100),
+    `ihs_hmp` VARCHAR(100),
+    `ihs_hvp` VARCHAR(100),
+    `ihs_hap` VARCHAR(100),
+    `ihs_hmt` VARCHAR(100),
+    `ihs_hmr` VARCHAR(100),
+    `ihs_hdt` VARCHAR(100),
+    `ihs_hdr` VARCHAR(100),
+    `ihs_hme` VARCHAR(100),
+    `ihs_hmw` VARCHAR(100),
+    `ihs_dar` VARCHAR(100),
+    `ihs_dap` VARCHAR(100),
+    `ihs_dag` VARCHAR(100),
+    `ihs_dac` VARCHAR(100),
+    `ihs_dat` VARCHAR(100),
+    `ihs_dab` VARCHAR(100),
+    `ihs_daa` VARCHAR(100),
+    `ihs_dam` VARCHAR(100),    
+    `ihs_ave` VARCHAR(100),
+    `ihs_afc` timestamp default current_timestamp,
+    `ihs_aco` VARCHAR(100),
+    `ihs_aga` timestamp default current_timestamp,
+    `ihs_ias` VARCHAR(100),
+    `ihs_ico` VARCHAR(100),
+    `ihs_ica` VARCHAR(100),
+    `ihs_iar` VARCHAR(100),
+    `ihs_ipr` VARCHAR(100),
+    `ihs_ias` timestamp default current_timestamp
+);
+CREATE TABLE `inventario_impresoras` (
+    `iim_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
+    `iim_mar` VARCHAR(100),
+    `iim_mod` VARCHAR(100),
+    `iim_asi` VARCHAR(100),
+    `iim_ubi` VARCHAR(100),
+    `iim_tim` VARCHAR(100),
+    `iim_ven` VARCHAR(100),
+    `iim_fec` timestamp default current_timestamp,
+    `iim_gar` VARCHAR(100),
+);
+CREATE TABLE `inventario_sw` (
+    `ihs_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
+    `ihs_rco` VARCHAR(100),
+    `ihs_nom` VARCHAR(100),
+    `ihs_ver` VARCHAR(100),
+    `ihs_edi` VARCHAR(100),
+    `ihs_ipr` VARCHAR(100),
+    `ihs_pke` VARCHAR(100),
+    `ihs_ven` VARCHAR(100),
+    `ihs_fco` VARCHAR(100),
+    `ihs_est` VARCHAR(100),
+    `ihs_com` VARCHAR(100),
+);
