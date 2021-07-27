@@ -14,6 +14,7 @@ router.get('/add', isLoggedIn, (req, res) => {
     res.render('softwares/add');
 });
 
+
 //Creamos una ruta /add para la peticion POS...
 router.post('/add', isLoggedIn, async (req, res) => {
     /*
