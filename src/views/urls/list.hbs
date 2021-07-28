@@ -2,18 +2,18 @@
 <div class="containet p-3">
     {{!Creamos una fila}}
     <div class="row">
-        {{!Creamos un boton para agregar un nuevo sw basico}}
+        {{!Creamos un boton para agregar una nueva URL}}
         <div class="d-grid gap-2 col-2 mx-auto">
-            {{!Boton para eliminar}}
-            <a href="/softwares/add" class="btn btn-primary">
-                Agregar programa
+            {{!Boton para agregar}}
+            <a href="/urls/add" class="btn btn-primary">
+                Agregar URL
             </a>
         </div>
-        {{!Creamos un espacio entre el boton y los software base}}
+        {{!Creamos un espacio entre el boton y las URLS}}
         <p>
         </p>
         {{!#each es para recorrer una lista}}
-        {{#each software_base}}
+        {{#each urls_ti}}
         {{!Creamos una columna de 3 unidades}}
         <div class="col-md-3">
             {{!Creamos una tarjeta para nuestro programa}}
@@ -21,30 +21,34 @@
                 {{!Creamos el titulo de nuestra tarjeta}}
                 <div class="card-body">
                     {{!Asignamos un hipervinculo con el campo de la URL de descarga}}
-                    <a href="{{swb_url}}">
+                    <a href="{{url_url}}">
                         {{!Marquillamos el tipo de titulo}}
                         <h3>
                             {{!Colocamos el nombre del programa}}
                             <div class="card-tittle text-uppercase">
-                                {{swb_nom}}
+                                {{url_nom}}
                             </div>
                         </h3>
                     </a>
                     {{!Colocamos la descripcion del programa}}
                     <p class="m-2">
-                        {{swb_det}}
+                        <i>{{url_det}}</i>
+                        <br>
+                        <b>Usuario: </b>{{url_usu}}
+                        <br>
+                        <b>Contraseña: </b>{{url_cla}}
                     </p>
                     {{!Colocamos la fecha de creacion o actualizacion de la informacion del programa}}
                     <p>
                         {{!Invocamos el metodo timeago para la traduccion de la fecha}}
-                        {{timeago swb_act}}
+                        {{timeago url_act}}
                     </p>
                     {{!Boton para eliminar}}
-                    <a href="/softwares/delete/{{swb_id}}" class="btn btn-danger">
+                    <a href="/urls/delete/{{url_id}}" class="btn btn-danger">
                         Eliminar
                     </a>
                     {{!Boton para editar}}
-                    <a href="/softwares/edit/{{swb_id}}" class="btn btn-secondary">
+                    <a href="/urls/edit/{{url_id}}" class="btn btn-secondary">
                         Editar
                     </a>
                 </div>
@@ -58,7 +62,7 @@
             <div class="card card-body d-grid gap-2 col-6 mx-auto text-center">
                 {{!}}
                 <p>
-                    No existen software base para este equipo, por favor agrega uno.
+                    No existen URL's registradas, por favor agrega una.
                 </p>
             </div>
         </div>

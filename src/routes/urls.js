@@ -8,10 +8,10 @@ const pool = require('../database');
 const { isLoggedIn } = require('../lib/auth');
 
 
-//Creamos una ruta /add para las peticiones GET, "localhost:4000/softwares/add"...
+//Creamos una ruta /add para las peticiones GET, "localhost:4000/urls/add"...
 router.get('/add', isLoggedIn, (req, res) => {
     //Renderisamos la vista con el siguiente archivo HBS...
-    res.render('softwares/add');
+    res.render('urls/add');
 });
 
 
@@ -22,120 +22,110 @@ router.post('/add', isLoggedIn, async (req, res) => {
     console.log(req.body);
     */
     //Asignamos los campos a guardar en la propiedad req.body...
-    const { swb_nom, swb_ver, swb_det, swb_img, swb_url, swb_com } = req.body;
+    const { url_nom, url_url, url_det, url_usu, url_cla } = req.body;
     //Creamos un objeto para un nuevo programa...
-    const newSoftware = {
-        swb_nom,
-        swb_ver,
-        swb_det,
-        swb_img,
-        swb_url,
-        //Relaciona los software base contra el usuario...
-        swb_com:req.user.usu_id
+    const newUrls = {
+        url_nom,
+        url_url,
+        url_det,
+        url_usu,
+        url_cla
     };
     //Enviamos nuestra informacion a la BD...
-    await pool.query('INSERT INTO software_base set ?', [newSoftware]);
+    await pool.query('INSERT INTO urls_ti set ?', [newUrls]);
     /*
     ///Muestra por consola el nuevo objeto...
-    console.log(newSoftware);
+    console.log(newUrls);
     //Muestra una respuesta de recibido...
     res.send('Recibido.');
     */
     //Creamos un mensaje con flash-connect
-    req.flash('AddSwSuccess', 'Programa almacenado satisfactoriamente.');
+    req.flash('AddSwSuccess', 'URL almacenada satisfactoriamente.');
     //Redireccionamos a la ruta de inicio...
-    res.redirect('/softwares');
+    res.redirect('/urls');
 });
 
 
 //Creamos la ruta /softwares para la peticion GET...
 router.get('/', isLoggedIn, async (req, res) => {
     //Creamos una constante software_base donde se almacenara el query ejecutado...
-    const software_base = await pool.query('SELECT * FROM software_base WHERE swb_com= ?', [req.user.usu_id]);
+    const urls_ti = await pool.query('SELECT * FROM urls_ti');
     /*
     //Mostramos el resultado por consola...
-    console.log(software_base);
+    console.log(urls_ti);
     //Enviamos una respuesta...
-    res.send('Aca se veran los software base.')
+    res.send('Aca se veran las URLS.')
     */
     //Renderisamos la vista con el siguiente archivo HBS, y enviamos los datos... 
-    res.render('softwares/list', { software_base: software_base });
+    res.render('urls/list', { urls_ti: urls_ti });
 });
 
 
 //Creamos la ruta /delete para la peticion GET...
-router.get('/delete/:swb_id', isLoggedIn, async (req, res) => {
+router.get('/delete/:url_id', isLoggedIn, async (req, res) => {
     /*
     //Mostramos el resultado por consola...
-    console.log(req.params.swb_id);
+    console.log(req.params.url_id);
     //Enviamos una respuesta...
     res.send('Programa eliminado...');
     */
     //Creamos una variable que almacene el ID del SW a eliminar...
-    const id = req.params.swb_id;
+    const id = req.params.url_id;
     //Enviamos el query con el ID a eliminar...
-    await pool.query('DELETE FROM software_base WHERE swb_id = ?', [id]);
+    await pool.query('DELETE FROM urls_ti WHERE url_id = ?', [id]);
     //Creamos un mensaje con flash-connect
-    req.flash('DeleteSwSuccess', 'Software base eliminado satisfactoriamente.');
+    req.flash('DeleteSwSuccess', 'URL eliminada satisfactoriamente.');
     //Redireccionamos a la pestaña de SW...
-    res.redirect('/softwares');
+    res.redirect('/urls');
 });
 
 
 //Creamos la ruta /edit para la peticion GET
-router.get('/edit/:swb_id', isLoggedIn, async (req, res) => {
+router.get('/edit/:url_id', isLoggedIn, async (req, res) => {
     /*
     //Mostramos el resultado por consola...
-    const id = req.params.swb_id;
+    const id = req.params.url_id;
     //Mostramos el resultado por consola...
     console.log(id);
     //Enviamos una respuesta... 
-    res.send('Programa editado...');
+    res.send('URL editada...');
     */
     //Creamos una variable que almacene el ID del SW a eliminar...
-    const id = req.params.swb_id;
+    const id = req.params.url_id;
     //Enviamos el query con el ID a consultar...
-    const sof_base = await pool.query('SELECT * FROM software_base WHERE swb_id = ?', [id]);
+    const urlsti = await pool.query('SELECT * FROM urls_ti WHERE url_id = ?', [id]);
     /*
     //Mostramos el resultado por consola...
-    console.log(sof_base[0]);
+    console.log(urlsti[0]);
     */
     //Renderisa en la ventana edit el contenido de software base
-    res.render('softwares/edit', { sof_base: sof_base[0] });
-    //Creamos un mensaje con flash-connect
-    req.flash('SearchSwSuccess', 'Programa encontrado satisfactoriamente.');
+    res.render('urls/edit', { urlsti: urlsti[0] });
 });
 
 
 //Creamos la ruta /edit para la peticion POST
-router.post('/edit/:swb_id', isLoggedIn, async (req, res) => {
+router.post('/edit/:url_id', isLoggedIn, async (req, res) => {
     //Creamos una constante para el ID que se recivira al momento de editar el programa...
-    const id = req.params.swb_id;
+    const id = req.params.url_id;
     //Asignamos los campos a guardar en la propiedad req.body...
-    const { swb_nom, swb_ver, swb_det, swb_img, swb_url, swb_com } = req.body;
+    const { url_nom, url_url, url_det, url_usu, url_cla } = req.body;
     //Creamos un objeto para un nuevo programa...
-    const editSoftware = {
-        swb_nom,
-        swb_ver,
-        swb_det,
-        swb_img,
-        swb_url,
-        //Adiciona el ID del usuario
-        swb_com:req.user.usu_id
+    const editUrls = {
+        url_nom,
+        url_url,
+        url_det,
+        url_usu,
+        url_cla
     };
-    /*
-    //Muestra por consola...
-    console.log(editSoftware);
-    console.log(id);
-    res.send("Actualizado");
-     */
+    
     //Enviamos nuestra informacion a la BD...
-    await pool.query('UPDATE software_base set ? WHERE swb_id = ?', [editSoftware, id]);
+    await pool.query('UPDATE urls_ti set ? WHERE url_id = ?', [editUrls, id]);
     //Creamos un mensaje con flash-connect
-    req.flash('UpdateSwSuccess', 'Programa actualizado satisfactoriamente.');
+    req.flash('UpdateSwSuccess', 'URL actualizada satisfactoriamente.');
     //Redireccionamos a la ruta de inicio...
-    res.redirect('/softwares');
+    res.redirect('/urls');
 });
+
 
 //Exportamos router...
 module.exports = router;

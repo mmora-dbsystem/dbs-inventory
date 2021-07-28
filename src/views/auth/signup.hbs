@@ -29,7 +29,13 @@
                         {{!Espacio}}
                         <br>
                         <div class="form-group">
-                            <input type="email" name="usu_cor" placeholder="Digita tu correo@db-system.com"
+                            <input type="email" name="usu_cpe" placeholder="Digita tu correo personal"
+                                class="form-control">
+                        </div>
+                        {{!Espacio}}
+                        <br>
+                        <div class="form-group">
+                            <input type="email" name="usu_cco" placeholder="Digita tu correo@db-system.com"
                                 class="form-control">
                         </div>
                         {{!Espacio}}
@@ -37,6 +43,18 @@
                         <div class="form-group">
                             <input type="password" name="usu_cla" placeholder="Digita tu contraseña"
                                 class="form-control">
+                        </div>
+                        {{!Espacio}}
+                        <br>
+                        <div class="form-group text-start">
+                            <div>
+                                <label class="">Rol</label>
+                            </div>
+                            <select name="usu_tus" class="form-select form-control">
+                                <option value="Administrador">Administrador</option>
+                                <option value="Operador">Operador</option>
+                                <option value="Consultor" selected>Consultor</option>
+                            </select>
                         </div>
                         {{!Espacio}}
                         <br>

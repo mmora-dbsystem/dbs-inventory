@@ -8,50 +8,49 @@
             <div class="card ">
                 <div class="card-title text-center">
                     <h3>
-                        AGREGAR SOFTWARE BASE
+                        AGREGAR URL
                     </h3>
                 </div>
                 {{!Cuerpo de la tarjeta}}
                 <div class="card-body">
                     {{!Ruta del formulario y metodo a usar}}
-                    <form action="/softwares/add" method="POST">
+                    <form action="/urls/add" method="POST">
                         {{!Campo para el nombre del programa}}
                         <div class="form-group">
-                            <input type="text" name="swb_nom" class="form-control" placeholder="Programa..." autofocus>
+                            <input type="text" name="url_nom" class="form-control" placeholder="Nombre..." autofocus>
                         </div>
                         {{!Espacio SALTO DE LINEA}}
                         <br>
                         {{!Campo para la version del programa}}
                         <div class="form-group">
-                            <input type="text" name="swb_ver" class="form-control" placeholder="Version...">
+                            <input type="url" name="url_url" class="form-control" placeholder="URL..." >
                         </div>
                         {{!Espacio SALTO DE LINEA}}
                         <br>
                         {{!Campo para la descripcion del programa}}
-                        <textarea name="swb_det" rows="2" class="form-control" placeholder="Descripcion..."></textarea>
+                        <textarea name="url_det" rows="2" class="form-control" placeholder="Descripcion..."></textarea>
                         {{!Espacio SALTO DE LINEA}}
                         <br>
                         {{!Campo para la imagen del programa}}
                         <div class="form-group">
-                            <input type="url" name="swb_img" class="form-control" placeholder="URL de la imagen...">
+                            <input type="text" name="url_usu" class="form-control" placeholder="Usuario...">
                         </div>
                         {{!Espacio SALTO DE LINEA}}
                         <br>
                         {{!Campo para la URL de descarga del programa}}
                         <div class="form-group">
-                            <input type="url" name="swb_url" class="form-control" placeholder="URL de descarga...">
+                            <input type="text" name="url_cla" class="form-control" placeholder="Clave...">
                         </div>
                         {{!Espacio SALTO DE LINEA}}
                         <br>
-                        
                         {{!Boton de guardar}}
                         <div class="form-group">
                             {{!Boton para guardar...}}
                             <button class="btn btn-success btn-block">
-                                GUARDAR PROGRAMA
+                                GUARDAR URL
                             </button>
                             {{!Boton para cancelar...}}
-                            <a href="/softwares" class="btn btn-secondary btn-block">
+                            <a href="/urls" class="btn btn-secondary btn-block">
                                 CANCELAR
                             </a>
                         </div>

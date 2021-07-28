@@ -11,21 +11,38 @@ const helpers = require('../lib/helpers');
 //Creamos autenticaciones de forma local...
 passport.use('local.signup', new LocalStrategy({
     //Definimos el usuario...
-    usernameField: 'usu_cor',
+    usernameField: 'usu_cco',
     //Definimos la contraseña...
     passwordField: 'usu_cla',
     //Definimos si recibira mas datos...
     passReqToCallback: true
     //Definimos la funcion que recibira los parametros...
-}, async (req, usu_cor, usu_cla, done) => {
+}, async (req, usu_cco, usu_cla, done) => {
+    //Creamos una variable para el tipo de usuario
+    var tipoUsuario = {};
+    //Creamos una variable para el estado del usuario
+    var estadoUsuario = 1;
+    //Validamos el tipo de usuario que se recibe...
+    if(req.body.usu_tus=='Administrador'){
+        tipoUsuario=1;
+    }
+    if(req.body.usu_tus=='Operador'){
+        tipoUsuario=2;
+    }
+    if(req.body.usu_tus=='Consultor'){
+        tipoUsuario=3;
+    }
     //Creamos un req.body con los campos no invocados...
-    const { usu_id, usu_nom, usu_ape } = req.body;
-    //console.log(req.body);
+    const { usu_id, usu_nom, usu_ape, usu_cpe, usu_tus, usu_eus } = req.body;
+    console.log(req.body);
     const newUser = {
-        usu_cor,
+        usu_cco,
         usu_cla,
         usu_nom,
-        usu_ape
+        usu_ape,
+        usu_cpe, 
+        usu_tus: tipoUsuario,
+        usu_eus: estadoUsuario
     };
     //Ciframos la contraseña...
     newUser.usu_cla = await helpers.encryptPassword(usu_cla);
@@ -46,22 +63,22 @@ passport.use('local.signup', new LocalStrategy({
 //Creamos el logueo de forma local...
 passport.use('local.signin', new LocalStrategy({
     //Recibimos el usuario...
-    usernameField: 'usu_cor',
+    usernameField: 'usu_cco',
     //Recibimos la contraseña...
     passwordField: 'usu_cla',
     //Habilitamos el pasar mas datos...
     passReqToCallback: true
-}, async(req, usu_cor, usu_cla, done) => {
+}, async(req, usu_cco, usu_cla, done) => {
     /*
     //Validamos por consola...
     console.log(req.body);
     //Validamos por consola...
-    console.log(usu_cor);
+    console.log(usu_cco);
     //Validamos por consola...
     console.log(usu_cla);
     */
    //Validamos el usuario que esta iniciando sesion...
-    const rows = await pool.query('SELECT * FROM usuarios WHERE usu_cor = ?', [usu_cor]);
+    const rows = await pool.query('SELECT * FROM usuarios WHERE usu_cco = ?', [usu_cco]);
     //Validamos si el usuario encontrado existe...
     if (rows.length > 0) {
         //Creamos una variable para el usuario encontrado...

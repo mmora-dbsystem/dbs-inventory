@@ -8,44 +8,58 @@
             <div class="card ">
                 {{!Cuerpo de la tarjeta}}
                 <div class="card-body">
+                    <div class="card-title text-center">
+                        <h3>
+                            ACTUALIZAR SOFTWARE BASE
+                            <br>
+                            ({{sof_base.swb_nom}})
+                        </h3>
+                    </div>
+                    {{!Espacio SALTO DE LINEA}}
+                    <br>
                     {{!Ruta del formulario y metodo a usar}}
-                    <form action="/softwares/edit/{{programa.pro_id}}" method="POST">
+                    <form action="/softwares/edit/{{sof_base.swb_id}}" method="POST">
                         {{!Campo para el nombre del programa}}
                         <div class="form-group">
-                            <input type="text" value ="{{programa.pro_nom}}" name="pro_nom" class="form-control" placeholder="Programa..." autofocus>
+                            <input type="text" value="{{sof_base.swb_nom}}" name="swb_nom" class="form-control"
+                                placeholder="Programa..." autofocus>
                         </div>
                         {{!Espacio SALTO DE LINEA}}
                         <br>
                         {{!Campo para la version del programa}}
                         <div class="form-group">
-                            <input type="text" value ="{{programa.pro_ver}}" name="pro_ver" class="form-control" placeholder="Version..." autofocus>
+                            <input type="text" value="{{sof_base.swb_ver}}" name="swb_ver" class="form-control"
+                                placeholder="Version..." autofocus>
                         </div>
                         {{!Espacio SALTO DE LINEA}}
                         <br>
                         {{!Campo para la descripcion del programa}}
-                        <textarea name="pro_det" rows="2" class="form-control" placeholder="Descripcion...">{{programa.pro_det}}</textarea>
+                        <textarea name="swb_det" rows="2" class="form-control"
+                            placeholder="Descripcion...">{{sof_base.swb_det}}</textarea>
                         {{!Espacio SALTO DE LINEA}}
                         <br>
                         {{!Campo para la imagen del programa}}
                         <div class="form-group">
-                            <input type="url" name="pro_img" value ="{{programa.pro_img}}" class="form-control" placeholder="URL de la imagen...">
+                            <input type="url" name="swb_img" value="{{sof_base.swb_img}}" class="form-control"
+                                placeholder="URL de la imagen...">
                         </div>
                         {{!Espacio SALTO DE LINEA}}
                         <br>
                         {{!Campo para la URL de descarga del programa}}
                         <div class="form-group">
-                            <input type="url" name="pro_url" value ="{{programa.pro_url}}"class="form-control" placeholder="URL de descarga...">
+                            <input type="url" name="swb_url" value="{{sof_base.swb_url}}" class="form-control"
+                                placeholder="URL de descarga...">
                         </div>
                         {{!Espacio SALTO DE LINEA}}
                         <br>
-                        
+
                         {{!Espacio SALTO DE LINEA}}
                         <br>
                         {{!Boton de guardar}}
                         <div class="form-group">
                             {{!Boton para guardar...}}
                             <button class="btn btn-success btn-block">
-                                GUARDAR PROGRAMA
+                                ACTUALIZAR
                             </button>
                             {{!Boton para cancelar...}}
                             <a href="/softwares" class="btn btn-secondary btn-block">
