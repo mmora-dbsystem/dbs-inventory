@@ -1,36 +1,6 @@
 CREATE DATABASE dbs_inventory;
 USE dbs_inventory;
 
-CREATE TABLE `tipo_de_usuario` (
-    `tus_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
-    `tus_det` VARCHAR( 100 ) NOT NULL 
-);
-INSERT INTO `dbs_inventory`.`tipo_de_usuario` (`tus_id` ,`tus_det`) 
-VALUES ('1', 'Administrador');
-INSERT INTO `dbs_inventory`.`tipo_de_usuario` (`tus_id` ,`tus_det`) 
-VALUES ('2', 'Operador');
-INSERT INTO `dbs_inventory`.`tipo_de_usuario` (`tus_id` ,`tus_det`) 
-VALUES ('3', 'Consultor');
-CREATE TABLE `estado_usuario` (
-    `eus_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
-    `eus_det` VARCHAR( 100 ) NOT NULL 
-);
-INSERT INTO `dbs_inventory`.`estado_usuario` (`eus_id` ,`eus_det`) 
-VALUES ('1', 'Activo');
-INSERT INTO `dbs_inventory`.`estado_usuario` (`eus_id` ,`eus_det`) 
-VALUES ('2', 'Inactivo');
-CREATE TABLE `estado_dispositivo` (
-    `est_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
-    `est_det` VARCHAR( 100 ) NOT NULL 
-);
-INSERT INTO `dbs_inventory`.`estado_dispositivo` (`est_id` ,`est_det`) 
-VALUES ('1', 'Disponible');
-INSERT INTO `dbs_inventory`.`estado_dispositivo` (`est_id` ,`est_det`) 
-VALUES ('2', 'Asignado');
-INSERT INTO `dbs_inventory`.`estado_dispositivo` (`est_id` ,`est_det`) 
-VALUES ('3', 'Retirado - Vida Util');
-INSERT INTO `dbs_inventory`.`estado_dispositivo` (`est_id` ,`est_det`) 
-VALUES ('4', 'Retirado - Hurto');
 CREATE TABLE `usuarios` (
     `usu_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
     `usu_nom` VARCHAR( 100 ) ,
@@ -38,11 +8,11 @@ CREATE TABLE `usuarios` (
     `usu_cco` VARCHAR( 100 ) ,
     `usu_cpe` VARCHAR( 100 ) ,
     `usu_cla` VARCHAR( 100 ) ,
-    `usu_tus` INT(100) ,
-    `usu_eus` INT(100)  
+    `usu_tus` VARCHAR( 100 ) ,
+    `usu_eus` VARCHAR( 100 )
 );
 INSERT INTO `dbs_inventory`.`usuarios` (`usu_id` ,`usu_nom`, `usu_ape` , `usu_cco`, `usu_cpe`, `usu_cla` , `usu_tus` ,`usu_eus`) 
-VALUES ('1', 'Administrador', 'DBS Inventory', 'dbsinventory@db-system.com', 'dbsinventory@db-system.com', '$2a$10$kA7ZMG1JrjX3Od.ZdwzkFuhUSq.spfgrs/RPzrCeLM0RYK2gJe6AG', '1', '1');
+VALUES ('1', 'Administrador', 'DBS Inventory', 'dbsinventory@db-system.com', 'dbsinventory@db-system.com', '$2a$10$kA7ZMG1JrjX3Od.ZdwzkFuhUSq.spfgrs/RPzrCeLM0RYK2gJe6AG', 'Administrador', 'Activo');
 CREATE TABLE `urls_ti` (
     `url_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
     `url_nom` VARCHAR( 100 ) NOT NULL ,
@@ -64,7 +34,7 @@ CREATE TABLE `software_base` (
 );
 CREATE TABLE `portatiles_hardware` (
     `phw_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
-    `phw_est` INT(100),
+    `phw_est` VARCHAR(100),
     `phw_ipt` VARCHAR(100),
     `phw_ser` VARCHAR(100),
     `phw_hma` VARCHAR(100),
@@ -134,7 +104,7 @@ CREATE TABLE `asignacion_portatiles` (
 );
 CREATE TABLE `escritorio_hardware` (
     `ehw_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
-    `ehw_est` INT(100),
+    `ehw_est` VARCHAR(100),
     `ehw_ipc` VARCHAR(100),
     `ehw_ser` VARCHAR(100),
     `ehw_hma` VARCHAR(100),
@@ -204,7 +174,7 @@ CREATE TABLE `asignacion_escritorio` (
 );
 CREATE TABLE `servidores_hardware` (
     `ise_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
-    `ise_est` INT(100),
+    `ise_est` VARCHAR(100),
     `ise_ise` VARCHAR(100),
     `ise_ser` VARCHAR(100),
     `ise_mar` VARCHAR(100),
@@ -262,7 +232,7 @@ CREATE TABLE `asignacion_servidores` (
 );
 CREATE TABLE `impresoras` (
     `imp_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
-    `imp_est` INT(100),
+    `imp_est` VARCHAR(100),
     `imp_iim` VARCHAR(100),
     `imp_ser` VARCHAR(100),
     `imp_mar` VARCHAR(100),

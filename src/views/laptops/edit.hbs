@@ -1,0 +1,151 @@
+{{!Creamos un contenedor}}
+<div class="container p-4">
+    {{!Creamos una fila para cada contenido}}
+    <div class="row">
+        {{!Creamos una columna de 4 unidades}}
+        <div class="col-md-4 mx-auto">
+            {{!Creamos una tarjeta}}
+            <div class="card ">
+                {{!Cuerpo de la tarjeta}}
+                <div class="card-body">
+                    <div class="card-title text-center">
+                        <h3>
+                            ACTUALIZAR PORTATIL
+                            <br>
+                            ({{portatil.phw_ipt}})
+                        </h3>
+                    </div>
+                    {{!Espacio SALTO DE LINEA}}
+                    <br>
+                    {{!Ruta del formulario y metodo a usar}}
+                    <form action="/laptops/edit/{{portatil.phw_ipt}}" method="POST">
+                        {{!Campo para la referencia del disco duro}}
+                        <div class="form-group text-start">
+                            <div>
+                                <label class="">Estado del equipo</label>
+                            </div>
+                            <select name="phw_est" class="form-select form-control">
+                                <option value="{{portatil.phw_est}}" selected>{{portatil.phw_est}}</option>
+                                <option value="Disponible">Disponible</option>
+                                <option value="Asignado">Asignado</option>
+                                <option value="Retirado - Vida Util">Retirado - Vida Util</option>
+                                <option value="Retirado - Hurto">Retirado - Hurto</option>
+                            </select>
+                        </div>
+                        
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para la version del programa}}
+                        <div class="form-group">
+                            <input type="text" value="{{portatil.phw_ser}}" name="phw_ser" class="form-control"
+                                placeholder="Serial del portatil...">
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para la marca del portatil}}
+                        <div class="form-group">
+                            <input type="text" value="{{portatil.phw_hma}}" name="phw_hma" class="form-control" placeholder="Marca del portatil...">
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para el modelo del portatil}}
+                        <div class="form-group">
+                            <input type="text" value="{{portatil.phw_hmo}}" name="phw_hmo" class="form-control" placeholder="Modelo del portatil...">
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para el modelo del procesador}}
+                        <div class="form-group">
+                            <input type="text" value="{{portatil.phw_hmp}}" name="phw_hmp" class="form-control" placeholder="Modelo del procesador...">
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para la velocidad del procesador}}
+                        <div class="form-group">
+                            <input type="text" value="{{portatil.phw_hvp}}" name="phw_hvp" class="form-control" placeholder="Velocidad del procesador...">
+                        </div>
+                        {{!Espacio}}
+                        <br>
+                        {{!Desplegable arquitectura del procesador}}
+                        <div class="form-group text-start">
+                            <div>
+                                <label class="">Arquitectura</label>
+                            </div>
+                            <select name="phw_hap" class="form-select form-control">
+                                <option value="{{portatil.phw_hap}}" selected>{{portatil.phw_hap}}</option>
+                                <option value="x32">x32</option>
+                                <option value="x64">x64</option>
+                            </select>
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para el tamaño de la memoria RAM}}
+                        <div class="form-group">
+                            <input type="text" value="{{portatil.phw_hmt}}" name="phw_hmt" class="form-control" placeholder="Tamaño de memoria RAM...">
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para la referencia de la memoria RAM}}
+                        <div class="form-group">
+                            <input type="text" value="{{portatil.phw_hmr}}" name="phw_hmr" class="form-control" placeholder="Tipo de memoria RAM...">
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para el tamaño del disco duro}}
+                        <div class="form-group">
+                            <input type="text" value="{{portatil.phw_hdt}}" name="phw_hdt" class="form-control" placeholder="Tamaño del disco duro...">
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para la referencia del disco duro}}
+                        <div class="form-group text-start">
+                            <div>
+                                <label class="">Tipo de disco duro</label>
+                            </div>
+                            <select name="phw_hdr" class="form-select form-control">
+                                <option value="{{portatil.phw_hdr}}" selected>{{portatil.phw_hdr}}</option>
+                                <option value="SDD">SDD</option>
+                                <option value="HDD">HDD</option>
+                            </select>
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para la MAC Eth}}
+                        <div class="form-group">
+                            <input type="text" value="{{portatil.phw_hme}}"name="phw_hme" class="form-control" placeholder="MAC Ethernet...">
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para la MAC WiFi}}
+                        <div class="form-group">
+                            <input type="text" value="{{portatil.phw_hmw}}" name="phw_hmw" class="form-control" placeholder="MAC Ethernet...">
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para las observaciones}}
+                        <textarea name="phw_obs" rows="2" class="form-control" placeholder="Observaciones...">{{portatil.phw_obs}}</textarea>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Campo para la URL de descarga del programa}}
+                        <div class="form-group">
+                            <input type="url" value="{{portatil.phw_img}}" name="phw_img" class="form-control" placeholder="URL de la imagen del equipo...">
+                        </div>
+                        {{!Espacio SALTO DE LINEA}}
+                        <br>
+                        {{!Boton de guardar}}
+                        <div class="form-group">
+                            {{!Boton para guardar...}}
+                            <button class="btn btn-success btn-block">
+                                ACTUALIZAR
+                            </button>
+                            {{!Boton para cancelar...}}
+                            <a href="/laptops" class="btn btn-secondary btn-block">
+                                CANCELAR
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

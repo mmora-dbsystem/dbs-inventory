@@ -1,0 +1,74 @@
+{{!Creamos un contenedor para nuestro portatil}}
+<div class="containet p-3">
+    {{!Creamos una fila}}
+    <div class="row">
+        {{!Creamos un boton para agregar un nuevo portatil}}
+        <div class="d-grid gap-2 col-2 mx-auto">
+            {{!Boton para eliminar}}
+            <a href="/laptops/add" class="btn btn-primary">
+                Agregar portatil
+            </a>
+        </div>
+        {{!Creamos un espacio entre el boton y los software base}}
+        <p>
+        </p>
+        {{!#each es para recorrer una lista}}
+        {{#each laptopsHW}}
+        {{!Creamos una columna de 3 unidades}}
+        <div class="col-md-3">
+            {{!Creamos una tarjeta para nuestro programa}}
+            <div class="card text-center">
+                {{!Creamos el titulo de nuestra tarjeta}}
+                <div class="card-body">
+                    {{!Marquillamos el tipo de titulo}}
+                    <h2>
+                        <a href="/laptops/laptop/{{phw_id}}">
+                            {{!Colocamos el ID interno del portatil}}
+                            <div class="card-tittle text-uppercase">
+                                {{phw_ipt}}
+                            </div>
+                        </a>
+                    </h2>
+                    {{!Colocamos el estado del programa}}
+                    <p class="m-2">
+                    <h3>
+                        <b>{{phw_est}}</b>
+                    </h3>
+                    <br>
+                    <i>{{phw_hma}} - {{phw_hmo}}</i>
+                    <br>
+                    {{phw_ser}}
+                    <br>
+                    {{phw_hmp}} "{{phw_hvp}}" - {{phw_hap}}
+                    <br>
+                    {{phw_hmt}} - {{phw_hmr}}
+                    <br>
+                    {{phw_hdr}} {{phw_hdt}}
+                    <br>
+                    <br>
+                    {{!Boton para eliminar}}
+                    <a href="/laptops/delete/{{phw_id}}" class="btn btn-danger">
+                        Eliminar
+                    </a>
+                    {{!Boton para editar}}
+                    <a href="/laptops/edit/{{phw_ipt}}" class="btn btn-secondary">
+                        Editar
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{!Si no existen software base realice la siguiente accion}}
+        {{else}}
+        {{!Si no hay enlaces muestre lo siguiente}}
+        <div class="col-md4 p-3">
+            {{!}}
+            <div class="card card-body d-grid gap-2 col-6 mx-auto text-center">
+                {{!}}
+                <p>
+                    No existen software base para este equipo, por favor agrega uno.
+                </p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

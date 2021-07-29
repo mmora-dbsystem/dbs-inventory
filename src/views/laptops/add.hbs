@@ -1,0 +1,145 @@
+{{!Creamos un contenedor}}
+<div class="container p-4">
+    {{!Creamos una fila para cada contenido}}
+    <div class="row">
+        {{!Creamos una columna de 4 unidades}}
+        <div class="col-md-12 mx-auto">
+            {{!Creamos una tarjeta}}
+            <div class="card ">
+                <div class="card-title text-center">
+                    <h3>
+                        <br>
+                        AGREGAR LAPTOP
+                    </h3>
+                </div>
+                {{!Cuerpo de la tarjeta}}
+                <div class="card-body">
+
+                    {{!Ruta del formulario y metodo a usar}}
+                    <form action="/laptops/add" method="POST">
+                        <div class="row">
+                            <div class="col-3">
+                                <input type="text" name="phw_ipt" class="form-control"
+                                    placeholder="ID Interno (000PT)..." autofocus>
+                            </div>
+                            <div class="col">
+                                <input type="text" name="phw_ser" class="form-control"
+                                    placeholder="Serial del portatil...">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="phw_hma" class="form-control"
+                                    placeholder="Marca del portatil...">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="phw_hmo" class="form-control"
+                                    placeholder="Modelo del portatil...">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="phw_hmp" class="form-control"
+                                    placeholder="Modelo del procesador...">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="phw_hvp" class="form-control"
+                                    placeholder="Velocidad del procesador...">
+                            </div>
+                            <div class="col">
+                                <select name="phw_hap" class="form-select form-control">
+                                    <option value="x32">x32</option>
+                                    <option value="x64" selected>x64</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="phw_hmt" class="form-control"
+                                    placeholder="Tamaño de memoria RAM...">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="phw_hmr" class="form-control"
+                                    placeholder="Tipo de memoria RAM...">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="phw_hdt" class="form-control"
+                                    placeholder="Tamaño del disco duro...">
+                            </div>
+                            <div class="col">
+                                <select name="phw_hdr" class="form-select form-control">
+                                    <option value="SDD">SDD</option>
+                                    <option value="HDD" selected>HDD</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="phw_hme" class="form-control" placeholder="MAC Ethernet...">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="phw_hmw" class="form-control" placeholder="MAC Ethernet...">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <textarea name="phw_obs" rows="2" class="form-control"
+                                    placeholder="Observaciones..."></textarea>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <input name="phw_img" type="url" class="form-control"
+                                    placeholder="URL Imagen del equipo...">
+                            </div>
+                            <div class="col">
+                                <input type="url" name="psw_ibi" class="form-control"
+                                    placeholder="URL Archivo Regedit...">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="psw_son" class="form-control"
+                                    placeholder="Sistema Operativo...">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="psw_sov" class="form-control" placeholder="Version S/O...">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="psw_soe" class="form-control" placeholder="Edicion S/O...">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="psw_soi" class="form-control" placeholder="S/O Product ID...">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="psw_sok" class="form-control" placeholder="S/O Key Product...">
+                            </div>
+                        </div>
+                        <br>
+                        {{!Boton de guardar}}
+                        <div class="form-group text-center">
+                            {{!Boton para guardar...}}
+                            <button class="btn btn-success btn-block">
+                                GUARDAR PORTATIL
+                            </button>
+                            {{!Boton para cancelar...}}
+                            <a href="/laptops" class="btn btn-secondary btn-block">
+                                CANCELAR
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

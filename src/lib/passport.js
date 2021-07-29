@@ -18,20 +18,8 @@ passport.use('local.signup', new LocalStrategy({
     passReqToCallback: true
     //Definimos la funcion que recibira los parametros...
 }, async (req, usu_cco, usu_cla, done) => {
-    //Creamos una variable para el tipo de usuario
-    var tipoUsuario = {};
     //Creamos una variable para el estado del usuario
-    var estadoUsuario = 1;
-    //Validamos el tipo de usuario que se recibe...
-    if(req.body.usu_tus=='Administrador'){
-        tipoUsuario=1;
-    }
-    if(req.body.usu_tus=='Operador'){
-        tipoUsuario=2;
-    }
-    if(req.body.usu_tus=='Consultor'){
-        tipoUsuario=3;
-    }
+    var estadoUsuario = 'Activo';
     //Creamos un req.body con los campos no invocados...
     const { usu_id, usu_nom, usu_ape, usu_cpe, usu_tus, usu_eus } = req.body;
     console.log(req.body);
@@ -41,7 +29,7 @@ passport.use('local.signup', new LocalStrategy({
         usu_nom,
         usu_ape,
         usu_cpe, 
-        usu_tus: tipoUsuario,
+        usu_tus, 
         usu_eus: estadoUsuario
     };
     //Ciframos la contraseña...
