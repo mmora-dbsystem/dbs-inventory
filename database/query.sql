@@ -84,7 +84,7 @@ CREATE TABLE `portatiles_informacion_administrativa` (
     `pia_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
     `pia_ipt` VARCHAR(100),
     `pia_ven` VARCHAR(100),
-    `pia_fco` timestamp default current_timestamp,
+    `pia_fco` VARCHAR(100),
     `pia_cos` VARCHAR(100),
     `pia_gar` VARCHAR(100)
 );
@@ -100,7 +100,7 @@ CREATE TABLE `asignacion_portatiles` (
     `apo_car` VARCHAR(100),
     `apo_pro` VARCHAR(100),
     `apo_ubi` VARCHAR(100),
-    `apo_fas` timestamp default current_timestamp
+    `apo_fas` VARCHAR(100)
 );
 CREATE TABLE `escritorio_hardware` (
     `ehw_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
@@ -154,7 +154,7 @@ CREATE TABLE `escritorio_informacion_administrativa` (
     `eia_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
     `eia_ipc` VARCHAR(100),
     `eia_ven` VARCHAR(100),
-    `eia_fco` timestamp default current_timestamp,
+    `eia_fco` VARCHAR(100),
     `eia_cos` VARCHAR(100),
     `eia_gar` VARCHAR(100)
 );
@@ -170,7 +170,7 @@ CREATE TABLE `asignacion_escritorio` (
     `aes_car` VARCHAR(100),
     `aes_pro` VARCHAR(100),
     `aes_ubi` VARCHAR(100),
-    `aes_fas` timestamp default current_timestamp
+    `aes_fas` VARCHAR(100)
 );
 CREATE TABLE `servidores_hardware` (
     `ise_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
@@ -212,7 +212,7 @@ CREATE TABLE `servidores_informacion_administrativa` (
     `sia_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
     `sia_ipc` VARCHAR(100),
     `sia_ven` VARCHAR(100),
-    `sia_fco` timestamp default current_timestamp,
+    `sia_fco` VARCHAR(100),
     `sia_cos` VARCHAR(100),
     `sia_gar` VARCHAR(100)
 );
@@ -228,7 +228,7 @@ CREATE TABLE `asignacion_servidores` (
     `ase_car` VARCHAR(100),
     `ase_pro` VARCHAR(100),
     `ase_ubi` VARCHAR(100),
-    `ase_fas` timestamp default current_timestamp
+    `ase_fas` VARCHAR(100)
 );
 CREATE TABLE `impresoras` (
     `imp_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
@@ -242,7 +242,7 @@ CREATE TABLE `impresoras_informacion_administrativa` (
     `iia_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
     `iia_iim` VARCHAR(100),
     `iia_ven` VARCHAR(100),
-    `iia_fco` timestamp default current_timestamp,
+    `iia_fco` VARCHAR(100),
     `iia_cos` VARCHAR(100),
     `iia_gar` VARCHAR(100)
 );
@@ -258,7 +258,7 @@ CREATE TABLE `asignacion_impresora` (
     `aim_car` VARCHAR(100),
     `aim_pro` VARCHAR(100),
     `aim_ubi` VARCHAR(100),
-    `aim_fas` timestamp default current_timestamp
+    `aim_fas` VARCHAR(100)
 );
 CREATE TABLE `inventario_sw` (
     `isf_id` INT(100) NOT NULL auto_increment PRIMARY KEY,

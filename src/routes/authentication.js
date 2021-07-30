@@ -10,13 +10,13 @@ const { route } = require('./index.js');//Se genera solo...
 const { isLoggedIn,  isNotLoggedIn} = require('../lib/auth');
 
 //Creamos la ruta para registrar un usuario con el metodo GET...
-router.get('/signup', isNotLoggedIn, (req, res) => {
+router.get('/signup', isLoggedIn, (req, res) => {
     //Renderisamos la ruta /singup
     res.render('auth/signup.hbs');
 });
 
 ////Utilizamos passport 
-router.post('/signup', isNotLoggedIn, passport.authenticate('local.signup', {
+router.post('/signup', isLoggedIn, passport.authenticate('local.signup', {
     //REdirecciona cuando todo esta OK a la vista profile...
     successRedirect: '/profile',
     //Redireccionamos a la vista si da error.
