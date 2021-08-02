@@ -1,0 +1,393 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="card ">
+                <div class="card-title text-center">
+                    <h3>
+                        <br>
+                        INFORMACION PORTATIL ({{portatilIHW.phw_ipt}})
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <form action="/laptops/info/{{portatilIHW.phw_ipt}}" method="POST">
+                        <div class="form-control">
+                            <h5>
+                                Informacion de hardware:
+                            </h5>
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Estado: </span>
+                                        <select disabled name="phw_est" class="form-select form-control">
+                                            <option value="{{portatilIHW.phw_est}}" selected>{{portatilIHW.phw_est}}
+                                            </option>
+                                            <option value="Disponible">Disponible</option>
+                                            <option value="Asignado">Asignado</option>
+                                            <option value="Retirado - Vida Util">Retirado - Vida Util</option>
+                                            <option value="Retirado - Hurto">Retirado - Hurto</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">ID Interno: </span>
+                                        <input disabled type="text" value="{{portatilIHW.phw_ipt}}" name="phw_ipt"
+                                            class="form-control" placeholder="000PT..." autofocus>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Serial: </span>
+                                        <input disabled type="text" value="{{portatilIHW.phw_ser}}" name="phw_ser"
+                                            class="form-control" placeholder="XXXXX...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Marca: </span>
+                                        <input disabled type="text" value="{{portatilIHW.phw_hma}}" name="phw_hma"
+                                            class="form-control" placeholder="Lenovo...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Modelo: </span>
+                                        <input disabled type="text" value="{{portatilIHW.phw_hmo}}" name="phw_hmo"
+                                            class="form-control" placeholder="ThinkPad T14 G1...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Procesador: </span>
+                                        <input disabled type="text" value="{{portatilIHW.phw_hmp}}" name="phw_hmp"
+                                            class="form-control" placeholder="Intel(R) Core(TM) I5-7200...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Velocidad: </span>
+                                        <input disabled type="text" value="{{portatilIHW.phw_hvp}}" name="phw_hvp"
+                                            class="form-control" placeholder="2.70 GHz...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Arquitectura: </span>
+                                        <select disabled value="{{portatilIHW.phw_hap}}" name="phw_hap"
+                                            class="form-select form-control">
+                                            <option value="x32">x32</option>
+                                            <option value="x64" selected>x64</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Memoria RAM: </span>
+                                        <input disabled type="text" value="{{portatilIHW.phw_hmt}}" name="phw_hmt"
+                                            class="form-control" placeholder="16 GB...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Tipo RAM: </span>
+                                        <input disabled type="text" value="{{portatilIHW.phw_hmr}}" name="phw_hmr"
+                                            class="form-control" placeholder="DDR4...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Disco duro: </span>
+                                        <input disabled type="text" value="{{portatilIHW.phw_hdt}}" name="phw_hdt"
+                                            class="form-control" placeholder="500 GB...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Tipo de disco: </span>
+                                        <select disabled name="phw_hdr" class="form-select form-control">
+                                            <option value="{{portatilIHW.phw_hdr}}" selected>{{portatilIHW.phw_hdr}}
+                                            </option>
+                                            <option value="SDD">SDD</option>
+                                            <option value="HDD">HDD</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">MAC Ethernet: </span>
+                                        <input disabled type="text" value="{{portatilIHW.phw_hme}}" name="phw_hme"
+                                            class="form-control" placeholder="00:00:00:00:00:00">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">MAC WIFI: </span>
+                                        <input disabled type="text" value="{{portatilIHW.phw_hmw}} " name="phw_hmw"
+                                            class="form-control" placeholder="00:00:00:00:00:00">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Observaciones: </span>
+                                    <div class="col">
+                                        <textarea disabled name="phw_obs" rows="2" class="form-control"
+                                            placeholder="Desgaste por uso, etc...">{{portatilIHW.phw_obs}}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">URL Imagen del equipo: </span>
+                                        <input disabled value="{{portatilIHW.phw_img}}" name="phw_img" type="url"
+                                            class="form-control" placeholder="http://...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-control">
+                            <h5>
+                                Dispositivos adicionales:
+                            </h5>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Mouse: </span>
+                                        <select disabled name="pda_mou" class="form-select form-control">
+                                            <option value="{{portatilIDA.pda_mou}}" selected>{{portatilIDA.pda_mou}}
+                                            </option>
+                                            <option value="SI">SI</option>
+                                            <option value="NO">NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">PadMouse: </span>
+                                        <select disabled name="pda_pmo" class="form-select form-control">
+                                            <option value="{{portatilIDA.pda_pmo}}" selected>{{portatilIDA.pda_pmo}}
+                                            </option>
+                                            <option value="SI">SI</option>
+                                            <option value="NO">NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Teclado: </span>
+                                        <select disabled name="pda_tec" class="form-select form-control">
+                                            <option value="{{portatilIDA.pda_tec}}" selected>{{portatilIDA.pda_tec}}
+                                            </option>
+                                            <option value="SI">SI</option>
+                                            <option value="NO">NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Base Refrigerante: </span>
+                                        <select disabled name="pda_bas" class="form-select form-control">
+                                            <option value="{{portatilIDA.pda_bas}}" selected>{{portatilIDA.pda_bas}}
+                                            </option>
+                                            <option value="SI">SI</option>
+                                            <option value="NO">NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Guaya: </span>
+                                        <select disabled name="pda_gua" class="form-select form-control">
+                                            <option value="{{portatilIDA.pda_gua}}" selected>{{portatilIDA.pda_gua}}
+                                            </option>
+                                            <option value="SI">SI</option>
+                                            <option value="NO">NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Clave guaya: </span>
+                                        <input disabled type="text" value="{{portatilIDA.pda_cgu}}" name="pda_cgu"
+                                            class="form-control" placeholder="0000...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Pantalla: </span>
+                                        <select disabled name="pda_pan" class="form-select form-control">
+                                            <option value="{{portatilIDA.pda_pan}}" selected>{{portatilIDA.pda_pan}}
+                                            </option>
+                                            <option value="SI">SI</option>
+                                            <option value="NO">NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Ethernet-USB: </span>
+                                        <select disabled name="pda_uet" class="form-select form-control">
+                                            <option value="{{portatilIDA.pda_uet}}" selected>{{portatilIDA.pda_uet}}
+                                            </option>
+                                            <option value="SI">SI</option>
+                                            <option value="NO">NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Observaciones: </span>
+                                        <textarea disabled name="pda_obs" rows="2" class="form-control"
+                                            placeholder="Mouse inalambrico, etc...">{{portatilIDA.pda_obs}}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-control">
+                            <h5>
+                                Informacion de software:
+                            </h5>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Sistema Operativo: </span>
+                                        <input disabled type="text" value="{{portatilISW.psw_son}}" name="psw_son"
+                                            class="form-control" placeholder="Windows - Linux...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">OS Version: </span>
+                                        <input disabled type="text" value="{{portatilISW.psw_sov}} " name="psw_sov"
+                                            class="form-control" placeholder="Vista, 10, Centos...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">OS Edition: </span>
+                                        <input disabled type="text" value="{{portatilISW.psw_soe}}" name="psw_soe"
+                                            class="form-control" placeholder="SL, Pro, Lite...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">OS Product ID: </span>
+                                        <input disabled type="text" value="{{portatilISW.psw_soi}}" name="psw_soi"
+                                            class="form-control" placeholder="XXXXX-XXXXX-XXXXX-AAOEM...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">OS Key product: </span>
+                                        <input disabled type="text" value="{{portatilISW.psw_sok}}" name="psw_sok"
+                                            class="form-control" placeholder="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Ruta archivo regedit: </span>
+                                        <input disabled type="url" value="{{portatilISW.psw_ibi}}" name="psw_ibi"
+                                            class="form-control" placeholder="http://...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-control">
+                            <h5>
+                                Informacion Soporte Remoto:
+                            </h5>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">ID AnyDesk: </span>
+                                        <input disabled type="text" value="{{portatilISW.psr_ida}}" name="psr_ida"
+                                            class="form-control" placeholder="XXX XXX XXX...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Clave AnyDesk: </span>
+                                        <input disabled type="text" value="{{portatilISW.psr_cla}}" name="psr_cla"
+                                            class="form-control" placeholder="Db830039811XXX*...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-control">
+                            <h5>
+                                Informacion administrativa:
+                            </h5>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Proveedor: </span>
+                                        <input disabled type="text" value="{{portatilIIA.pia_ven}}" name="pia_ven"
+                                            class="form-control" placeholder="Nephix...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Fecha de compra: </span>
+                                        <input disabled type="date" value="{{portatilIIA.pia_fco}}" name="pia_fco"
+                                            class="form-control" id="start" name="trip-start" min="2000-01-01"
+                                            max="2100-12-31">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Valor del equipo: </span>
+                                        <input disabled type="text" value="{{portatilIIA.pia_cos}}" name="pia_cos"
+                                            class="form-control" placeholder="$2'500.000...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Tiempo de garantia: </span>
+                                        <input disabled type="text" value="{{portatilIIA.pia_gar}}" name="pia_gar"
+                                            class="form-control" placeholder="3 Años...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group text-center">
+                            <a href="/laptops" class="btn btn-secondary btn-block">
+                                VOLVER
+                            </a>
+
+                            <a href="/laptops/edit/{{portatilIHW.phw_ipt}}" class="btn btn-warning btn-block">
+                                EDITAR
+                            </a>
+                        </div>
+                        <div class="form-group text-center">
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

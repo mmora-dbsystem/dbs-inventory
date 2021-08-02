@@ -1,7 +1,5 @@
-{{!Navbar importado de botstrap}}
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    {{!Colocamos el titulo de nuestra aplicacion}}
     <a class="navbar-brand" href="/">DBS Inventory</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,35 +7,63 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav">
-        {{!Validamos si hay logueo}}
         {{#if user}}
-        {{!Item para las URLS de soporte}}
-        <li class="nav-link">
-          <a class="nav-link" aria-current="page" href="/urls/">URL's</a>
+        <li class="nav-link dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Inventario de hardware
+          </a>
+          <ul class="dropdown-menu dropdown-menu-primary" aria-labelledby="navbarPrimaryDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Celulares</a></li>
+            <li><a class="dropdown-item" href="#">Impresoras</a></li>
+            <li><a class="dropdown-item" href="#">Telefonos fijos</a></li>
+            <li><a class="dropdown-item" href="laptops">Equipos portatiles</a></li>
+            <li><a class="dropdown-item" href="#">Equipos servidores</a></li>
+            <li><a class="dropdown-item" href="#">Equipos de escritorio</a></li>
+            <li><a class="dropdown-item" href="#">Dispositivos rentados</a></li>
+            <li><a class="dropdown-item" href="#">Dispositivos audiovisuales</a></li>
+            <li><a class="dropdown-item" href="#">Dispositivos de networking</a></li>
+            <li><a class="dropdown-item" href="#">Dispositivos de almacenamiento</a></li>
+          </ul>
         </li>
-        {{!Item para el SW Base de los equipos}}
-        <li class="nav-link">
-          <a class="nav-link" aria-current="page" href="/softwares/">SW Base</a>
+        <li class="nav-link dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Inventario de software
+          </a>
+          <ul class="dropdown-menu dropdown-menu-primary" aria-labelledby="navbarPrimaryDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Ofimatica</a></li>
+            <li><a class="dropdown-item" href="/softwares/">Software Base</a></li>
+            <li><a class="dropdown-item" href="#">Software adicional</a></li>
+            <li><a class="dropdown-item" href="#">Sistemas operativos</a></li>
+          </ul>
         </li>
-        {{!Item para el inventario de HW}}
+        <li class="nav-link dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Usuarios
+          </a>
+          <ul class="dropdown-menu dropdown-menu-primary" aria-labelledby="navbarPrimaryDropdownMenuLink">
+            <li><a class="dropdown-item" href="/profile/">Mi perfil</a></li>
+            <li><a class="dropdown-item" href="/signup/">Crear usuario</a></li>
+            <li><a class="dropdown-item" href="#">Modificar usuario</a></li>
+            <li><a class="dropdown-item" href="#">Eliminar usuarios</a></li>
+            <li><a class="dropdown-item" href="#">Consultar usuarios</a></li>
+          </ul>
+        </li>
+        <li class="nav-link dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Administracion TI
+          </a>
+          <ul class="dropdown-menu dropdown-menu-primary" aria-labelledby="navbarPrimaryDropdownMenuLink">
+            <li><a class="dropdown-item" href="/urls/">URL's TI</a></li>
+            <li><a class="dropdown-item" href="#">Ambientes virtualizados</a></li>
+          </ul>
+        </li>
         <li class="nav-link">
           <a class="nav-link" aria-current="page" href="/laptops/">Inventario HW</a>
         </li>
-        {{!Item para el inventario de SW}}
-        <li class="nav-link">
-          <a class="nav-link" aria-current="page" href="/inventariosw">Inventario SW</a>
-        </li>
-        <li class="nav-link">
-          <a class="nav-link" aria-current="page" href="/profile">Perfil</a>
-        </li>
-
-
-        <li class="nav-link">
-          <div class="dropdown">
-            <a class="nav-link" aria-current="page" href="/signup">Crear usuario</a>
-        </li>
-
-
         <li class="nav-link">
           <a class="nav-link" aria-current="page" href="/logout">Cerrar Sesion</a>
         </li>
@@ -51,3 +77,4 @@
     </div>
   </div>
 </nav>
+</div>

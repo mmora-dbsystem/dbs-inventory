@@ -263,21 +263,45 @@ router.post('/edit/:phw_ipt', isLoggedIn, async (req, res) => {
     res.redirect('/laptops');
 });
 
-/*
-//Creamos la ruta get para laptop...
-router.get('/laptop/:phw_id', isLoggedIn, async (req, res) => {
-    //Creamos la constante ID para pasar el ID del portatil...
-    const id = req.body.phw_id;
-    //Creamos un arreglo para almacenar la informacion del portatil...
-    const info_laptop = await pool.query('SELECT * FROM portatiles_hardware WHERE phw_id = ?', [id] );
+
+//Creamos la ruta /edit para la peticion GET
+router.get('/info/:phw_ipt', isLoggedIn, async (req, res) => {
+    /*
+    //Mostramos el resultado por consola...
+    const id = req.params.phw_id;
+    //Mostramos el resultado por consola...
     console.log(id);
-    console.log(info_laptop);
-    //Renderisamos la informacion del portatil...
-    res.render('laptops/laptop');
-    //Enviamos mensaje de equipo encontrado...
-    req.flash('Esta es la informacion del equipo: ' + id + '.');
+    //Enviamos una respuesta... 
+    res.send('Laptop editado...');
+    */
+    //Creamos una variable que almacene el ID del laptop a editar...
+    const id = req.params.phw_ipt;
+    //Enviamos el query con el ID a consultar...
+    const portatilIHW = await pool.query('SELECT * FROM portatiles_hardware WHERE phw_ipt = ?', [id]);
+    //Enviamos el query con el ID a consultar...
+    const portatilIDA = await pool.query('SELECT * FROM portatiles_dispositivos_adicionales WHERE pda_ipt = ?', [id]);
+    //Enviamos el query con el ID a consultar...
+    const portatilISW = await pool.query('SELECT * FROM portatiles_software WHERE psw_ipt = ?', [id]);
+    //Enviamos el query con el ID a consultar...
+    const portatilISR = await pool.query('SELECT * FROM portatiles_soporte_remoto WHERE psr_ipt = ?', [id]);
+    //Enviamos el query con el ID a consultar...
+    const portatilIIA = await pool.query('SELECT * FROM portatiles_informacion_administrativa WHERE pia_ipt = ?', [id]);
+    /*
+    //Mostramos el resultado por consola...
+    console.log(portatilHW[0]);
+    */
+    //Renderisa en la ventana edit el contenido de software base
+    res.render('laptops/info', { 
+        portatilIHW: portatilIHW[0], 
+        portatilISW: portatilISW[0], 
+        portatilIDA: portatilIDA[0], 
+        portatilISR: portatilISR[0],
+        portatilIIA: portatilIIA[0] 
+    });
+    //Creamos un mensaje con flash-connect
+    req.flash('SearchSwSuccess', 'Esta es la informacion del portatil.');
 });
-*/
+
 
 //Exportamos router...
 module.exports = router;
