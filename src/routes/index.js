@@ -12,6 +12,5 @@ router.get('/', isNotLoggedIn, (req, res) => {
 })
 
 
-
 //Exportamos router...
 module.exports = router;

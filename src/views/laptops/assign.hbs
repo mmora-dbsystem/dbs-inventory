@@ -1,0 +1,119 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="card ">
+                <div class="card-title text-center">
+                    <h3>
+                        <br>
+                        ASIGNAR PORTATIL ({{portatilAssign.por_id_interno}})
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <form action="/laptops/assign/{{portatilAssign.por_id_interno}}" method="POST">
+                        <div class="form-control">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">ID Interno: </span>
+                                        <input disabled type="text" name="por_id_interno" class="form-control" value="{{portatilAssign.por_id_interno}}">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Consultor: </span>
+                                        <input autofocus type="text" name="por_asignacion_consultor" class="form-control" placeholder="Nombre(s) Apellido(s)...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Documento de identidad: </span>
+                                        <input type="text" name="por_asignacion_documento_identidad" class="form-control" placeholder="1'234.567.890...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Lugar de expedicion: </span>
+                                        <input type="text" name="por_asignacion_expedicion_documento" class="form-control"
+                                            placeholder="Bogotá...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Correo corporativo: </span>
+                                        <input type="mail" name="por_asignacion_correo_corporativo" class="form-control"
+                                            placeholder="correo@db-system.com...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Correo personal: </span>
+                                        <input type="mail" name="por_asignacion_correo_personal" class="form-control"
+                                            placeholder="correo@correo.com...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Area: </span>
+                                        <input type="text" name="por_asignacion_area" class="form-control" placeholder="Desarrollo...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Cargo: </span>
+                                        <input type="text" name="por_asignacion_cargo" class="form-control" placeholder=".Net...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Proyecto: </span>
+                                        <input type="text" name="por_asignacion_proyecto" class="form-control" placeholder="Min. Hacienda...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Ubicacion: </span>
+                                        <input type="text" name="por_asignacion_ubicacion" class="form-control"
+                                            placeholder="Bogotá">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Fecha de asignacion: </span>
+                                        <input type="date" name="por_asignacion_fecha_asignacion" class="form-control" id="start"
+                                            name="trip-start" min="2000-01-01" max="2100-12-31">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Observaciones: </span>
+                                        <input type="text" name="por_asignacion_observaciones" class="form-control"
+                                            placeholder="Equipo con desgaste por uso...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group text-center">
+                            <button class="btn btn-success btn-block">
+                                ASIGNAR PORTATIL
+                            </button>
+                            <a href="/laptops" class="btn btn-secondary btn-block">
+                                CANCELAR
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

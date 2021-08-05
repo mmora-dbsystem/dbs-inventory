@@ -22,16 +22,14 @@ router.post('/add', isLoggedIn, async (req, res) => {
     console.log(req.body);
     */
     //Asignamos los campos a guardar en la propiedad req.body...
-    const { swb_nom, swb_ver, swb_det, swb_img, swb_url, swb_com } = req.body;
+    const { swb_nombre, swb_version, swb_detalle, swb_imagen, swb_descarga } = req.body;
     //Creamos un objeto para un nuevo programa...
     const newSoftware = {
-        swb_nom,
-        swb_ver,
-        swb_det,
-        swb_img,
-        swb_url,
-        //Relaciona los software base contra el usuario...
-        swb_com:req.user.usu_id
+        swb_nombre,
+        swb_version,
+        swb_detalle,
+        swb_imagen,
+        swb_descarga,
     };
     //Enviamos nuestra informacion a la BD...
     await pool.query('INSERT INTO software_base set ?', [newSoftware]);
@@ -51,7 +49,7 @@ router.post('/add', isLoggedIn, async (req, res) => {
 //Creamos la ruta /softwares para la peticion GET...
 router.get('/', isLoggedIn, async (req, res) => {
     //Creamos una constante software_base donde se almacenara el query ejecutado...
-    const software_base = await pool.query('SELECT * FROM software_base WHERE swb_com= ?', [req.user.usu_id]);
+    const software_base = await pool.query('SELECT * FROM software_base');
     /*
     //Mostramos el resultado por consola...
     console.log(software_base);
@@ -112,16 +110,14 @@ router.post('/edit/:swb_id', isLoggedIn, async (req, res) => {
     //Creamos una constante para el ID que se recivira al momento de editar el programa...
     const id = req.params.swb_id;
     //Asignamos los campos a guardar en la propiedad req.body...
-    const { swb_nom, swb_ver, swb_det, swb_img, swb_url, swb_com } = req.body;
+    const { swb_nombre, swb_version, swb_detalle, swb_imagen, swb_descarga } = req.body;
     //Creamos un objeto para un nuevo programa...
     const editSoftware = {
-        swb_nom,
-        swb_ver,
-        swb_det,
-        swb_img,
-        swb_url,
-        //Adiciona el ID del usuario
-        swb_com:req.user.usu_id
+        swb_nombre,
+        swb_version,
+        swb_detalle,
+        swb_imagen,
+        swb_descarga,
     };
     /*
     //Muestra por consola...

@@ -22,14 +22,14 @@ router.post('/add', isLoggedIn, async (req, res) => {
     console.log(req.body);
     */
     //Asignamos los campos a guardar en la propiedad req.body...
-    const { url_nom, url_url, url_det, url_usu, url_cla } = req.body;
+    const { url_nombre, url_url, url_detalle, url_usuario, url_clave } = req.body;
     //Creamos un objeto para un nuevo programa...
     const newUrls = {
-        url_nom,
+        url_nombre,
         url_url,
-        url_det,
-        url_usu,
-        url_cla
+        url_detalle,
+        url_usuario,
+        url_clave
     };
     //Enviamos nuestra informacion a la BD...
     await pool.query('INSERT INTO urls_ti set ?', [newUrls]);
@@ -108,14 +108,14 @@ router.post('/edit/:url_id', isLoggedIn, async (req, res) => {
     //Creamos una constante para el ID que se recivira al momento de editar el programa...
     const id = req.params.url_id;
     //Asignamos los campos a guardar en la propiedad req.body...
-    const { url_nom, url_url, url_det, url_usu, url_cla } = req.body;
+    const { url_nombre, url_url, url_detalle, url_usuario, url_clave } = req.body;
     //Creamos un objeto para un nuevo programa...
     const editUrls = {
-        url_nom,
+        url_nombre,
         url_url,
-        url_det,
-        url_usu,
-        url_cla
+        url_detalle,
+        url_usuario,
+        url_clave
     };
     
     //Enviamos nuestra informacion a la BD...

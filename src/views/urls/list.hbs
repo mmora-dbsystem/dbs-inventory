@@ -21,27 +21,27 @@
                 {{!Creamos el titulo de nuestra tarjeta}}
                 <div class="card-body">
                     {{!Asignamos un hipervinculo con el campo de la URL de descarga}}
-                    <a href="{{url_url}}">
+                    <a href="{{url_url}} " target="_blank">
                         {{!Marquillamos el tipo de titulo}}
                         <h3>
                             {{!Colocamos el nombre del programa}}
                             <div class="card-tittle text-uppercase">
-                                {{url_nom}}
+                                {{url_nombre}}
                             </div>
                         </h3>
                     </a>
                     {{!Colocamos la descripcion del programa}}
                     <p class="m-2">
-                        <i>{{url_det}}</i>
+                        <i>{{url_detalle}}</i>
                         <br>
-                        <b>Usuario: </b>{{url_usu}}
+                        <b>Usuario: </b>{{url_usuario}}
                         <br>
-                        <b>Contraseña: </b>{{url_cla}}
+                        <b>Contraseña: </b>{{url_clave}}
                     </p>
                     {{!Colocamos la fecha de creacion o actualizacion de la informacion del programa}}
                     <p>
                         {{!Invocamos el metodo timeago para la traduccion de la fecha}}
-                        {{timeago url_act}}
+                        {{timeago url_fecha_actualizacion}}
                     </p>
                     {{!Boton para eliminar}}
                     <a href="/urls/delete/{{url_id}}" class="btn btn-danger">

@@ -12,7 +12,7 @@
                         <h3>
                             ACTUALIZAR SOFTWARE BASE
                             <br>
-                            ({{sof_base.swb_nom}})
+                            ({{sof_base.swb_nombre}})
                         </h3>
                     </div>
                     {{!Espacio SALTO DE LINEA}}
@@ -21,33 +21,33 @@
                     <form action="/softwares/edit/{{sof_base.swb_id}}" method="POST">
                         {{!Campo para el nombre del programa}}
                         <div class="form-group">
-                            <input type="text" value="{{sof_base.swb_nom}}" name="swb_nom" class="form-control"
+                            <input type="text" value="{{sof_base.swb_nombre}}" name="swb_nombre" class="form-control"
                                 placeholder="Programa..." autofocus>
                         </div>
                         {{!Espacio SALTO DE LINEA}}
                         <br>
                         {{!Campo para la version del programa}}
                         <div class="form-group">
-                            <input type="text" value="{{sof_base.swb_ver}}" name="swb_ver" class="form-control"
+                            <input type="text" value="{{sof_base.swb_version}}" name="swb_version" class="form-control"
                                 placeholder="Version..." autofocus>
                         </div>
                         {{!Espacio SALTO DE LINEA}}
                         <br>
                         {{!Campo para la descripcion del programa}}
-                        <textarea name="swb_det" rows="2" class="form-control"
-                            placeholder="Descripcion...">{{sof_base.swb_det}}</textarea>
+                        <textarea name="swb_detalle" rows="2" class="form-control"
+                            placeholder="Descripcion...">{{sof_base.swb_detalle}}</textarea>
                         {{!Espacio SALTO DE LINEA}}
                         <br>
                         {{!Campo para la imagen del programa}}
                         <div class="form-group">
-                            <input type="url" name="swb_img" value="{{sof_base.swb_img}}" class="form-control"
+                            <input type="url" name="swb_imagen" value="{{sof_base.swb_imagen}}" class="form-control"
                                 placeholder="URL de la imagen...">
                         </div>
                         {{!Espacio SALTO DE LINEA}}
                         <br>
                         {{!Campo para la URL de descarga del programa}}
                         <div class="form-group">
-                            <input type="url" name="swb_url" value="{{sof_base.swb_url}}" class="form-control"
+                            <input type="url" name="swb_descarga" value="{{sof_base.swb_descarga}}" class="form-control"
                                 placeholder="URL de descarga...">
                         </div>
                         {{!Espacio SALTO DE LINEA}}

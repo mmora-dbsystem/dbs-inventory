@@ -5,11 +5,11 @@
                 <div class="card-title text-center">
                     <h3>
                         <br>
-                        ACTUALIZAR PORTATIL ({{portatilHW.phw_ipt}})
+                        ACTUALIZAR PORTATIL ({{portatilHW.por_id_interno}})
                     </h3>
                 </div>
                 <div class="card-body">
-                    <form action="/laptops/edit/{{portatilHW.phw_ipt}}" method="POST">
+                    <form action="/laptops/edit/{{portatilHW.por_id_interno}}" method="POST">
                         <div class="form-control">
                             <h5>
                                 Informacion de hardware:
@@ -18,8 +18,8 @@
                                 <div class="col-3">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Estado: </span>
-                                        <select name="phw_est" class="form-select form-control">
-                                            <option value="{{portatilHW.phw_est}}" selected>{{portatilHW.phw_est}}
+                                        <select name="por_info_estado" class="form-select form-control">
+                                            <option value="{{portatilHW.por_info_estado}}" selected>{{portatilHW.por_info_estado}}
                                             </option>
                                             <option value="Disponible">Disponible</option>
                                             <option value="Asignado">Asignado</option>
@@ -31,14 +31,14 @@
                                 <div class="col-3">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">ID Interno: </span>
-                                        <input disabled type="text" value="{{portatilHW.phw_ipt}}" name="phw_ipt"
+                                        <input disabled type="text" value="{{portatilHW.por_id_interno}}" name="por_id_interno"
                                             class="form-control" placeholder="000PT..." autofocus>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Serial: </span>
-                                        <input type="text" value="{{portatilHW.phw_ser}}" name="phw_ser"
+                                        <input type="text" value="{{portatilHW.por_info_serial}}" name="por_info_serial"
                                             class="form-control" placeholder="XXXXX...">
                                     </div>
                                 </div>
@@ -47,14 +47,14 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Marca: </span>
-                                        <input type="text" value="{{portatilHW.phw_hma}}" name="phw_hma"
+                                        <input type="text" value="{{portatilHW.por_info_marca}}" name="por_info_marca"
                                             class="form-control" placeholder="Lenovo...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Modelo: </span>
-                                        <input type="text" value="{{portatilHW.phw_hmo}}" name="phw_hmo"
+                                        <input type="text" value="{{portatilHW.por_info_modelo}}" name="por_info_modelo"
                                             class="form-control" placeholder="ThinkPad T14 G1...">
                                     </div>
                                 </div>
@@ -63,21 +63,21 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Procesador: </span>
-                                        <input type="text" value="{{portatilHW.phw_hmp}}" name="phw_hmp"
+                                        <input type="text" value="{{portatilHW.por_info_procesador_modelo}}" name="por_info_procesador_modelo"
                                             class="form-control" placeholder="Intel(R) Core(TM) I5-7200...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Velocidad: </span>
-                                        <input type="text" value="{{portatilHW.phw_hvp}}" name="phw_hvp"
+                                        <input type="text" value="{{portatilHW.por_info_procesador_velocidad}}" name="por_info_procesador_velocidad"
                                             class="form-control" placeholder="2.70 GHz...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Arquitectura: </span>
-                                        <select value="{{portatilHW.phw_hap}}" name="phw_hap"
+                                        <select value="{{portatilHW.por_info_procesador_arquitectura}}" name="por_info_procesador_arquitectura"
                                             class="form-select form-control">
                                             <option value="x32">x32</option>
                                             <option value="x64" selected>x64</option>
@@ -89,29 +89,29 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Memoria RAM: </span>
-                                        <input type="text" value="{{portatilHW.phw_hmt}}" name="phw_hmt"
+                                        <input type="text" value="{{portatilHW.por_info_memoria_tamano}}" name="por_info_memoria_tamano"
                                             class="form-control" placeholder="16 GB...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Tipo RAM: </span>
-                                        <input type="text" value="{{portatilHW.phw_hmr}}" name="phw_hmr"
+                                        <input type="text" value="{{portatilHW.por_info_memoria_referencia}}" name="por_info_memoria_referencia"
                                             class="form-control" placeholder="DDR4...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Disco duro: </span>
-                                        <input type="text" value="{{portatilHW.phw_hdt}}" name="phw_hdt"
+                                        <input type="text" value="{{portatilHW.por_info_disco_tamano}}" name="por_info_disco_tamano"
                                             class="form-control" placeholder="500 GB...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Tipo de disco: </span>
-                                        <select name="phw_hdr" class="form-select form-control">
-                                            <option value="{{portatilHW.phw_hdr}}" selected>{{portatilHW.phw_hdr}}
+                                        <select name="por_info_disco_referencia" class="form-select form-control">
+                                            <option value="{{portatilHW.por_info_disco_referencia}}" selected>{{portatilHW.por_info_disco_referencia}}
                                             </option>
                                             <option value="SDD">SDD</option>
                                             <option value="HDD">HDD</option>
@@ -123,14 +123,14 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">MAC Ethernet: </span>
-                                        <input type="text" value="{{portatilHW.phw_hme}}" name="phw_hme"
+                                        <input type="text" value="{{portatilHW.por_info_mac_ethernet}}" name="por_info_mac_ethernet"
                                             class="form-control" placeholder="00:00:00:00:00:00">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">MAC WIFI: </span>
-                                        <input type="text" value="{{portatilHW.phw_hmw}} " name="phw_hmw"
+                                        <input type="text" value="{{portatilHW.por_info_mac_wifi}} " name="por_info_mac_wifi"
                                             class="form-control" placeholder="00:00:00:00:00:00">
                                     </div>
                                 </div>
@@ -139,17 +139,8 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Observaciones: </span>
                                     <div class="col">
-                                        <textarea name="phw_obs" rows="2" class="form-control"
-                                            placeholder="Desgaste por uso, etc...">{{portatilHW.phw_obs}}</textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">URL Imagen del equipo: </span>
-                                        <input value="{{portatilHW.phw_img}}" name="phw_img" type="url"
-                                            class="form-control" placeholder="http://...">
+                                        <textarea name="por_info_observaciones" rows="2" class="form-control"
+                                            placeholder="Desgaste por uso, etc...">{{portatilHW.por_info_observaciones}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -163,8 +154,8 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Mouse: </span>
-                                        <select name="pda_mou" class="form-select form-control">
-                                            <option value="{{portatilDA.pda_mou}}" selected>{{portatilDA.pda_mou}}
+                                        <select name="por_adicional_mouse" class="form-select form-control">
+                                            <option value="{{portatilHW.por_adicional_mouse}}" selected>{{portatilHW.por_adicional_mouse}}
                                             </option>
                                             <option value="SI">SI</option>
                                             <option value="NO">NO</option>
@@ -174,8 +165,8 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">PadMouse: </span>
-                                        <select name="pda_pmo" class="form-select form-control">
-                                            <option value="{{portatilDA.pda_pmo}}" selected>{{portatilDA.pda_pmo}}
+                                        <select name="por_adicional_padmouse" class="form-select form-control">
+                                            <option value="{{portatilHW.por_adicional_padmouse}}" selected>{{portatilHW.por_adicional_padmouse}}
                                             </option>
                                             <option value="SI">SI</option>
                                             <option value="NO">NO</option>
@@ -185,8 +176,8 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Teclado: </span>
-                                        <select name="pda_tec" class="form-select form-control">
-                                            <option value="{{portatilDA.pda_tec}}" selected>{{portatilDA.pda_tec}}
+                                        <select name="por_adicional_teclado" class="form-select form-control">
+                                            <option value="{{portatilHW.por_adicional_teclado}}" selected>{{portatilHW.por_adicional_teclado}}
                                             </option>
                                             <option value="SI">SI</option>
                                             <option value="NO">NO</option>
@@ -196,8 +187,8 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Base Refrigerante: </span>
-                                        <select name="pda_bas" class="form-select form-control">
-                                            <option value="{{portatilDA.pda_bas}}" selected>{{portatilDA.pda_bas}}
+                                        <select name="por_adicional_base_refrigerante" class="form-select form-control">
+                                            <option value="{{portatilHW.por_adicional_base_refrigerante}}" selected>{{portatilHW.por_adicional_base_refrigerante}}
                                             </option>
                                             <option value="SI">SI</option>
                                             <option value="NO">NO</option>
@@ -209,8 +200,8 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Guaya: </span>
-                                        <select name="pda_gua" class="form-select form-control">
-                                            <option value="{{portatilDA.pda_gua}}" selected>{{portatilDA.pda_gua}}
+                                        <select name="por_adicional_guaya" class="form-select form-control">
+                                            <option value="{{portatilHW.por_adicional_guaya}}" selected>{{portatilHW.por_adicional_guaya}}
                                             </option>
                                             <option value="SI">SI</option>
                                             <option value="NO">NO</option>
@@ -220,15 +211,15 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Clave guaya: </span>
-                                        <input type="text" value="{{portatilDA.pda_cgu}}" name="pda_cgu"
+                                        <input type="text" value="{{portatilHW.por_adicional_clave_guaya}}" name="por_adicional_clave_guaya"
                                             class="form-control" placeholder="0000...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Pantalla: </span>
-                                        <select name="pda_pan" class="form-select form-control">
-                                            <option value="{{portatilDA.pda_pan}}" selected>{{portatilDA.pda_pan}}
+                                        <select name="por_adicional_pantalla" class="form-select form-control">
+                                            <option value="{{portatilHW.por_adicional_pantalla}}" selected>{{portatilHW.por_adicional_pantalla}}
                                             </option>
                                             <option value="SI">SI</option>
                                             <option value="NO">NO</option>
@@ -238,8 +229,8 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Ethernet-USB: </span>
-                                        <select name="pda_uet" class="form-select form-control">
-                                            <option value="{{portatilDA.pda_uet}}" selected>{{portatilDA.pda_uet}}
+                                        <select name="por_adicional_adaptador_usb_eth" class="form-select form-control">
+                                            <option value="{{portatilHW.por_adicional_adaptador_usb_eth}}" selected>{{portatilHW.por_adicional_adaptador_usb_eth}}
                                             </option>
                                             <option value="SI">SI</option>
                                             <option value="NO">NO</option>
@@ -251,8 +242,8 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Observaciones: </span>
-                                        <textarea name="pda_obs" rows="2" class="form-control"
-                                            placeholder="Mouse inalambrico, etc...">{{portatilDA.pda_obs}}</textarea>
+                                        <textarea name="por_adicional_observaciones_dispositivos" rows="2" class="form-control"
+                                            placeholder="Mouse inalambrico, etc...">{{portatilHW.por_adicional_observaciones_dispositivos}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -266,21 +257,21 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Sistema Operativo: </span>
-                                        <input type="text" value="{{portatilSW.psw_son}}" name="psw_son"
+                                        <input type="text" value="{{portatilHW.por_sw_sistema_operativo}}" name="por_sw_sistema_operativo"
                                             class="form-control" placeholder="Windows - Linux...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">OS Version: </span>
-                                        <input type="text" value="{{portatilSW.psw_sov}} " name="psw_sov"
+                                        <input type="text" value="{{portatilHW.por_sw_version_so}} " name="por_sw_version_so"
                                             class="form-control" placeholder="Vista, 10, Centos...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">OS Edition: </span>
-                                        <input type="text" value="{{portatilSW.psw_soe}}" name="psw_soe"
+                                        <input type="text" value="{{portatilHW.por_sw_edicion_so}}" name="por_sw_edicion_so"
                                             class="form-control" placeholder="SL, Pro, Lite...">
                                     </div>
                                 </div>
@@ -289,14 +280,14 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">OS Product ID: </span>
-                                        <input type="text" value="{{portatilSW.psw_soi}}" name="psw_soi"
+                                        <input type="text" value="{{portatilHW.por_sw_product_id}}" name="por_sw_product_id"
                                             class="form-control" placeholder="XXXXX-XXXXX-XXXXX-AAOEM...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">OS Key product: </span>
-                                        <input type="text" value="{{portatilSW.psw_sok}}" name="psw_sok"
+                                        <input type="text" value="{{portatilHW.por_sw_product_key}}" name="por_sw_product_key"
                                             class="form-control" placeholder="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX...">
                                     </div>
                                 </div>
@@ -305,7 +296,7 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Ruta archivo regedit: </span>
-                                        <input type="url" value="{{portatilSW.psw_ibi}}" name="psw_ibi"
+                                        <input type="url" value="{{portatilHW.por_sw_ruta_info}}" name="por_sw_ruta_info"
                                             class="form-control" placeholder="http://...">
                                     </div>
                                 </div>
@@ -320,14 +311,14 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">ID AnyDesk: </span>
-                                        <input type="text" value="{{portatilSR.psr_ida}}" name="psr_ida"
+                                        <input type="text" value="{{portatilHW.por_soporte_remoto_id}}" name="por_soporte_remoto_id"
                                             class="form-control" placeholder="XXX XXX XXX...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Clave AnyDesk: </span>
-                                        <input type="text" value="{{portatilSR.psr_cla}}" name="psr_cla"
+                                        <input type="text" value="{{portatilHW.por_soporte_remoto_clave}}" name="por_soporte_remoto_clave"
                                             class="form-control" placeholder="Db830039811XXX*...">
                                     </div>
                                 </div>
@@ -342,14 +333,14 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Proveedor: </span>
-                                        <input type="text" value="{{portatilIA.pia_ven}}" name="pia_ven"
+                                        <input type="text" value="{{portatilHW.por_administrativa_vendedor}}" name="por_administrativa_vendedor"
                                             class="form-control" placeholder="Nephix...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Fecha de compra: </span>
-                                        <input type="date" value="{{portatilIA.pia_fco}}" name="pia_fco"
+                                        <input type="date" value="{{portatilHW.por_administrativa_fecha_compra}}" name="por_administrativa_fecha_compra"
                                             class="form-control" id="start" name="trip-start" min="2000-01-01"
                                             max="2100-12-31">
                                     </div>
@@ -359,14 +350,14 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Valor del equipo: </span>
-                                        <input type="text" value="{{portatilIA.pia_cos}}" name="pia_cos"
+                                        <input type="text" value="{{portatilHW.por_administrativa_costo}}" name="por_administrativa_costo"
                                             class="form-control" placeholder="$2'500.000...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Tiempo de garantia: </span>
-                                        <input type="text" value="{{portatilIA.pia_gar}}" name="pia_gar"
+                                        <input type="text" value="{{portatilHW.por_administrativa_garantia}}" name="por_administrativa_garantia"
                                             class="form-control" placeholder="3 Años...">
                                     </div>
                                 </div>

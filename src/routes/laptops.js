@@ -8,6 +8,60 @@ const pool = require('../database');
 const { isLoggedIn } = require('../lib/auth');
 
 
+//Creamos la ruta /laptops para la peticion GET...
+router.get('/', isLoggedIn, async (req, res) => {
+    //Creamos una constante software_base donde se almacenara el query ejecutado...
+    const laptopsHW = await pool.query('SELECT * FROM portatiles');
+    res.render('laptops/list', { laptopsHW: laptopsHW });
+});
+
+
+//Creamos la ruta /delete para la peticion GET...
+router.get('/delete/:por_id', isLoggedIn, async (req, res) => {
+    /*
+    //Mostramos el resultado por consola...
+    console.log(req.params.por_id);
+    //Enviamos una respuesta...
+    res.send('Laptop eliminado...');
+    */
+    //Creamos una variable que almacene el ID del SW a eliminar...
+    const id = req.params.por_id;
+    //Enviamos el query con el ID a eliminar...
+    await pool.query('DELETE FROM portatiles WHERE por_id = ?', [id]);
+    //Creamos un mensaje con flash-connect
+    req.flash('DeleteSwSuccess', 'Laptop eliminada satisfactoriamente.');
+    //Redireccionamos a la pestaña de SW...
+    res.redirect('/laptops');
+});
+
+
+//Creamos la ruta /edit para la peticion GET
+router.get('/info/:por_id_interno', isLoggedIn, async (req, res) => {
+    /*
+    //Mostramos el resultado por consola...
+    const id = req.params.por_id_interno;
+    //Mostramos el resultado por consola...
+    console.log(id);
+    //Enviamos una respuesta... 
+    res.send('Laptop editado...');
+    */
+    //Creamos una variable que almacene el ID del laptop a editar...
+    const id = req.params.por_id_interno;
+    //Enviamos el query con el ID a consultar...
+    const portatilIHW = await pool.query('SELECT * FROM portatiles WHERE por_id_interno = ?', [id]);
+    /*
+    //Mostramos el resultado por consola...
+    console.log(portatilHW[0]);
+    */
+    //Renderisa en la ventana edit el contenido de software base
+    res.render('laptops/info', {
+        portatilIHW: portatilIHW[0],
+    });
+    //Creamos un mensaje con flash-connect
+    req.flash('SearchSwSuccess', 'Esta es la informacion del portatil.');
+});
+
+
 //Creamos una ruta /add para las peticiones GET, "localhost:4000/laptop/add"...
 router.get('/add', isLoggedIn, (req, res) => {
     //Renderisamos la vista con el siguiente archivo HBS...
@@ -22,69 +76,69 @@ router.post('/add', isLoggedIn, async (req, res) => {
     console.log(req.body);
     */
     //Asignamos los campos a guardar en la propiedad req.body...
-    const { phw_est, phw_ipt, phw_ser, phw_hma, phw_hmo, phw_hmp, phw_hvp, phw_hap, phw_hmt, phw_hmr, phw_hdt, phw_hdr, phw_hme, phw_hmw, phw_obs, phw_img,
-        pda_ipt, pda_mou, pda_pmo, pda_tec, pda_bas, pda_gua, pda_cgu, pda_pan, pda_uet, pda_obs,
-        psw_ipt, psw_son, psw_sov, psw_soe, psw_soi, psw_sok, psw_ibi,
-        psr_ipt, psr_ida, psr_cla,
-        pia_ipt, pia_ven, pia_fco, pia_cos, pia_gar } = req.body;
+    const { por_id, por_id_interno, por_info_estado, por_info_serial, por_info_marca, por_info_modelo, por_info_procesador_modelo,
+        por_info_procesador_velocidad, por_info_procesador_arquitectura, por_info_memoria_tamano, por_info_memoria_referencia,
+        por_info_disco_tamano, por_info_disco_referencia, por_info_mac_ethernet, por_info_mac_wifi, por_info_observaciones, por_info_ruta_imagen,
+        por_sw_sistema_operativo, por_sw_version_so, por_sw_edicion_so, por_sw_product_id, por_sw_product_key, por_sw_ruta_info,
+        por_soporte_remoto_id, por_soporte_remoto_clave, por_adicional_mouse, por_adicional_padmouse, por_adicional_teclado, por_adicional_base_refrigerante,
+        por_adicional_guaya, por_adicional_clave_guaya, por_adicional_pantalla, por_adicional_adaptador_usb_eth, por_adicional_observaciones_dispositivos,
+        por_administrativa_vendedor, por_administrativa_fecha_compra, por_administrativa_costo, por_administrativa_garantia, por_asignacion_consultor,
+        por_asignacion_documento_identidad, por_asignacion_expedicion_documento, por_asignacion_correo_corporativo, por_asignacion_correo_personal,
+        por_asignacion_area, por_asignacion_cargo, por_asignacion_proyecto, por_asignacion_ubicacion, por_asignacion_fecha_asignacion, por_asignacion_observaciones } = req.body;
+    const imageURL = 'http://localhost/repo_dbs_inventory/laptops/' + por_id_interno;
     //Creamos un objeto para un nuevo programa...
     const newLaptopHW = {
-        phw_est: 'Disponible',
-        phw_ipt,
-        phw_ser,
-        phw_hma,
-        phw_hmo,
-        phw_hmp,
-        phw_hvp,
-        phw_hap,
-        phw_hmt,
-        phw_hmr,
-        phw_hdt,
-        phw_hdr,
-        phw_hme,
-        phw_hmw,
-        phw_obs,
-        phw_img
-    };
-    const newAdicionalesLaptop = {
-        pda_ipt: phw_ipt,
-        pda_mou,
-        pda_pmo,
-        pda_tec,
-        pda_bas,
-        pda_gua,
-        pda_cgu,
-        pda_pan,
-        pda_uet,
-        pda_obs
-    };
-    const newLaptopSW = {
-        psw_ipt: phw_ipt,
-        psw_son,
-        psw_sov,
-        psw_soe,
-        psw_soi,
-        psw_sok,
-        psw_ibi
-    };
-    const newRemotoLaptop = {
-        psr_ipt: phw_ipt,
-        psr_ida,
-        psr_cla
-    };
-    const newAdministrativaLaptop = {
-        pia_ipt: phw_ipt,
-        pia_ven, 
-        pia_fco, 
-        pia_cos, 
-        pia_gar
+        por_id_interno,
+        por_info_estado: 'Disponible',
+        por_info_serial,
+        por_info_marca,
+        por_info_modelo,
+        por_info_procesador_modelo,
+        por_info_procesador_velocidad,
+        por_info_procesador_arquitectura,
+        por_info_memoria_tamano,
+        por_info_memoria_referencia,
+        por_info_disco_tamano,
+        por_info_disco_referencia,
+        por_info_mac_ethernet,
+        por_info_mac_wifi,
+        por_info_observaciones,
+        por_info_ruta_imagen: imageURL,
+        por_sw_sistema_operativo,
+        por_sw_version_so,
+        por_sw_edicion_so,
+        por_sw_product_id,
+        por_sw_product_key,
+        por_sw_ruta_info,
+        por_soporte_remoto_id,
+        por_soporte_remoto_clave,
+        por_adicional_mouse,
+        por_adicional_padmouse,
+        por_adicional_teclado,
+        por_adicional_base_refrigerante,
+        por_adicional_guaya,
+        por_adicional_clave_guaya,
+        por_adicional_pantalla,
+        por_adicional_adaptador_usb_eth,
+        por_adicional_observaciones_dispositivos,
+        por_administrativa_vendedor,
+        por_administrativa_fecha_compra,
+        por_administrativa_costo,
+        por_administrativa_garantia,
+        por_asignacion_consultor,
+        por_asignacion_documento_identidad,
+        por_asignacion_expedicion_documento,
+        por_asignacion_correo_corporativo,
+        por_asignacion_correo_personal,
+        por_asignacion_area,
+        por_asignacion_cargo,
+        por_asignacion_proyecto,
+        por_asignacion_ubicacion,
+        por_asignacion_fecha_asignacion,
+        por_asignacion_observaciones
     };
     //Enviamos nuestra informacion a la BD...
-    await pool.query('INSERT INTO portatiles_hardware set ?', [newLaptopHW]);
-    await pool.query('INSERT INTO portatiles_dispositivos_adicionales set ?', [newAdicionalesLaptop]);
-    await pool.query('INSERT INTO portatiles_software set ?', [newLaptopSW]);
-    await pool.query('INSERT INTO portatiles_soporte_remoto set ?', [newRemotoLaptop]);
-    await pool.query('INSERT INTO portatiles_informacion_administrativa set ?', [newAdministrativaLaptop]);
+    await pool.query('INSERT INTO portatiles set ?', [newLaptopHW]);
     /*
     ///Muestra por consola el nuevo objeto...
     console.log(newLaptopHW);
@@ -98,81 +152,27 @@ router.post('/add', isLoggedIn, async (req, res) => {
 });
 
 
-//Creamos la ruta /laptops para la peticion GET...
-router.get('/', isLoggedIn, async (req, res) => {
-    //Creamos una constante software_base donde se almacenara el query ejecutado...
-    const laptopsHW = await pool.query('SELECT * FROM portatiles_hardware');
-    /*
-    //Mostramos el resultado por consola...
-    console.log(laptopsHW);
-    //Enviamos una respuesta...
-    res.send('Aca se veran las laptops.')
-    */
-    //Renderisamos la vista con el siguiente archivo HBS, y enviamos los datos... 
-    res.render('laptops/list', { laptopsHW: laptopsHW });
-});
-
-
-//Creamos la ruta /delete para la peticion GET...
-router.get('/delete/:phw_id', isLoggedIn, async (req, res) => {
-    /*
-    //Mostramos el resultado por consola...
-    console.log(req.params.phw_id);
-    //Enviamos una respuesta...
-    res.send('Laptop eliminado...');
-    */
-    //Creamos una variable que almacene el ID del SW a eliminar...
-    const id = req.params.phw_id;
-    //Enviamos el query con el ID a eliminar...
-    await pool.query('DELETE FROM portatiles_hardware WHERE phw_id = ?', [id]);
-    //Enviamos el query con el ID a eliminar...
-    await pool.query('DELETE FROM portatiles_dispositivos_adicionales WHERE pda_id = ?', [id]);
-    //Enviamos el query con el ID a eliminar...
-    await pool.query('DELETE FROM portatiles_software WHERE psw_id = ?', [id]);
-    //Enviamos el query con el ID a eliminar...
-    await pool.query('DELETE FROM portatiles_soporte_remoto WHERE psr_id = ?', [id]);
-    //Enviamos el query con el ID a eliminar...
-    await pool.query('DELETE FROM portatiles_informacion_administrativa WHERE pia_id = ?', [id]);
-    //Creamos un mensaje con flash-connect
-    req.flash('DeleteSwSuccess', 'Laptop eliminada satisfactoriamente.');
-    //Redireccionamos a la pestaña de SW...
-    res.redirect('/laptops');
-});
-
-
 //Creamos la ruta /edit para la peticion GET
-router.get('/edit/:phw_ipt', isLoggedIn, async (req, res) => {
+router.get('/edit/:por_id_interno', isLoggedIn, async (req, res) => {
     /*
     //Mostramos el resultado por consola...
-    const id = req.params.phw_id;
+    const id = req.params.por_id_interno;
     //Mostramos el resultado por consola...
     console.log(id);
     //Enviamos una respuesta... 
     res.send('Laptop editado...');
     */
     //Creamos una variable que almacene el ID del laptop a editar...
-    const id = req.params.phw_ipt;
+    const id = req.params.por_id_interno;
     //Enviamos el query con el ID a consultar...
-    const portatilHW = await pool.query('SELECT * FROM portatiles_hardware WHERE phw_ipt = ?', [id]);
-    //Enviamos el query con el ID a consultar...
-    const portatilDA = await pool.query('SELECT * FROM portatiles_dispositivos_adicionales WHERE pda_ipt = ?', [id]);
-    //Enviamos el query con el ID a consultar...
-    const portatilSW = await pool.query('SELECT * FROM portatiles_software WHERE psw_ipt = ?', [id]);
-    //Enviamos el query con el ID a consultar...
-    const portatilSR = await pool.query('SELECT * FROM portatiles_soporte_remoto WHERE psr_ipt = ?', [id]);
-    //Enviamos el query con el ID a consultar...
-    const portatilIA = await pool.query('SELECT * FROM portatiles_informacion_administrativa WHERE pia_ipt = ?', [id]);
+    const portatilHW = await pool.query('SELECT * FROM portatiles WHERE por_id_interno = ?', [id]);
     /*
     //Mostramos el resultado por consola...
     console.log(portatilHW[0]);
     */
     //Renderisa en la ventana edit el contenido de software base
-    res.render('laptops/edit', { 
-        portatilHW: portatilHW[0], 
-        portatilSW: portatilSW[0], 
-        portatilDA: portatilDA[0], 
-        portatilSR: portatilSR[0],
-        portatilIA: portatilIA[0] 
+    res.render('laptops/edit', {
+        portatilHW: portatilHW[0]
     });
     //Creamos un mensaje con flash-connect
     req.flash('SearchSwSuccess', 'El equipo portatil se a actualizado satisfactoriamente.');
@@ -180,66 +180,70 @@ router.get('/edit/:phw_ipt', isLoggedIn, async (req, res) => {
 
 
 //Creamos la ruta /edit para la peticion POST
-router.post('/edit/:phw_ipt', isLoggedIn, async (req, res) => {
+router.post('/edit/:por_id_interno', isLoggedIn, async (req, res) => {
     //Creamos una constante para el ID que se recivira al momento de editar el programa...
-    const id = req.params.phw_ipt;
+    const id = req.params.por_id_interno;
     //Asignamos los campos a guardar en la propiedad req.body...
-    const { phw_est, phw_ipt, phw_ser, phw_hma, phw_hmo, phw_hmp, phw_hvp, phw_hap, phw_hmt, phw_hmr, phw_hdt, phw_hdr, phw_hme, phw_hmw, phw_obs, phw_img,
-        pda_ipt, pda_mou, pda_pmo, pda_tec, pda_bas, pda_gua, pda_cgu, pda_pan, pda_uet, pda_obs,
-        psw_ipt, psw_son, psw_sov, psw_soe, psw_soi, psw_sok, psw_ibi,
-        psr_ipt, psr_ida, psr_cla,
-        pia_ipt, pia_ven, pia_fco, pia_cos, pia_gar } = req.body;
+    const { por_id, por_id_interno, por_info_estado, por_info_serial, por_info_marca, por_info_modelo, por_info_procesador_modelo,
+        por_info_procesador_velocidad, por_info_procesador_arquitectura, por_info_memoria_tamano, por_info_memoria_referencia,
+        por_info_disco_tamano, por_info_disco_referencia, por_info_mac_ethernet, por_info_mac_wifi, por_info_observaciones, por_info_ruta_imagen,
+        por_sw_sistema_operativo, por_sw_version_so, por_sw_edicion_so, por_sw_product_id, por_sw_product_key, por_sw_ruta_info,
+        por_soporte_remoto_id, por_soporte_remoto_clave, por_adicional_mouse, por_adicional_padmouse, por_adicional_teclado, por_adicional_base_refrigerante,
+        por_adicional_guaya, por_adicional_clave_guaya, por_adicional_pantalla, por_adicional_adaptador_usb_eth, por_adicional_observaciones_dispositivos,
+        por_administrativa_vendedor, por_administrativa_fecha_compra, por_administrativa_costo, por_administrativa_garantia, por_asignacion_consultor,
+        por_asignacion_documento_identidad, por_asignacion_expedicion_documento, por_asignacion_correo_corporativo, por_asignacion_correo_personal,
+        por_asignacion_area, por_asignacion_cargo, por_asignacion_proyecto, por_asignacion_ubicacion, por_asignacion_fecha_asignacion, por_asignacion_observaciones } = req.body;
+    const imageURL = 'http://localhost/repo_dbs_inventory/laptops/' + id;
     //Creamos un objeto para un nuevo programa...
     const editLaptopHW = {
-        phw_est,
-        phw_ipt: id,
-        phw_ser,
-        phw_hma,
-        phw_hmo,
-        phw_hmp,
-        phw_hvp,
-        phw_hap,
-        phw_hmt,
-        phw_hmr,
-        phw_hdt,
-        phw_hdr,
-        phw_hme,
-        phw_hmw,
-        phw_obs,
-        phw_img
-    };
-    const editAdicionales = {
-        pda_ipt: id,
-        pda_mou,
-        pda_pmo,
-        pda_tec,
-        pda_bas,
-        pda_gua,
-        pda_cgu,
-        pda_pan,
-        pda_uet,
-        pda_obs
-    };
-    const editLaptopSW = {
-        psw_ipt: id,
-        psw_son,
-        psw_sov,
-        psw_soe,
-        psw_soi,
-        psw_sok,
-        psw_ibi
-    };
-    const editRemotoLaptop = {
-        psr_ipt: id,
-        psr_ida,
-        psr_cla
-    };
-    const editAdministrativaLaptop = {
-        pia_ipt: id,
-        pia_ven, 
-        pia_fco, 
-        pia_cos, 
-        pia_gar
+        por_id_interno: id,
+        por_info_estado,
+        por_info_serial,
+        por_info_marca,
+        por_info_modelo,
+        por_info_procesador_modelo,
+        por_info_procesador_velocidad,
+        por_info_procesador_arquitectura,
+        por_info_memoria_tamano,
+        por_info_memoria_referencia,
+        por_info_disco_tamano,
+        por_info_disco_referencia,
+        por_info_mac_ethernet,
+        por_info_mac_wifi,
+        por_info_observaciones,
+        por_info_ruta_imagen: imageURL,
+        por_sw_sistema_operativo,
+        por_sw_version_so,
+        por_sw_edicion_so,
+        por_sw_product_id,
+        por_sw_product_key,
+        por_sw_ruta_info,
+        por_soporte_remoto_id,
+        por_soporte_remoto_clave,
+        por_adicional_mouse,
+        por_adicional_padmouse,
+        por_adicional_teclado,
+        por_adicional_base_refrigerante,
+        por_adicional_guaya,
+        por_adicional_clave_guaya,
+        por_adicional_pantalla,
+        por_adicional_adaptador_usb_eth,
+        por_adicional_observaciones_dispositivos,
+        por_administrativa_vendedor,
+        por_administrativa_fecha_compra,
+        por_administrativa_costo,
+        por_administrativa_garantia,
+        por_asignacion_consultor,
+        por_asignacion_documento_identidad,
+        por_asignacion_expedicion_documento,
+        por_asignacion_correo_corporativo,
+        por_asignacion_correo_personal,
+        por_asignacion_area,
+        por_asignacion_cargo,
+        por_asignacion_proyecto,
+        por_asignacion_ubicacion,
+        por_asignacion_fecha_asignacion,
+        por_asignacion_observaciones
     };
     /*
     //Muestra por consola...
@@ -248,15 +252,7 @@ router.post('/edit/:phw_ipt', isLoggedIn, async (req, res) => {
     res.send("Actualizado");
      */
     //Enviamos nuestra informacion a la BD...
-    await pool.query('UPDATE portatiles_hardware set ? WHERE phw_ipt = ?', [editLaptopHW, id]);
-    //Enviamos nuestra informacion a la BD...
-    await pool.query('UPDATE portatiles_dispositivos_adicionales set ? WHERE pda_ipt = ?', [editAdicionales, id]);
-    //Enviamos nuestra informacion a la BD...
-    await pool.query('UPDATE portatiles_software set ? WHERE psw_ipt = ?', [editLaptopSW, id]);
-    //Enviamos nuestra informacion a la BD...
-    await pool.query('UPDATE portatiles_soporte_remoto set ? WHERE psr_ipt = ?', [editRemotoLaptop, id]);
-    //Enviamos nuestra informacion a la BD...
-    await pool.query('UPDATE portatiles_informacion_administrativa set ? WHERE pia_ipt = ?', [editAdministrativaLaptop, id]);
+    await pool.query('UPDATE portatiles set ? WHERE por_id_interno = ?', [editLaptopHW, id]);
     //Creamos un mensaje con flash-connect
     req.flash('UpdateSwSuccess', 'El equipo portatil se a actualizado satisfactoriamente.');
     //Redireccionamos a la ruta de inicio...
@@ -264,42 +260,49 @@ router.post('/edit/:phw_ipt', isLoggedIn, async (req, res) => {
 });
 
 
-//Creamos la ruta /edit para la peticion GET
-router.get('/info/:phw_ipt', isLoggedIn, async (req, res) => {
-    /*
-    //Mostramos el resultado por consola...
-    const id = req.params.phw_id;
-    //Mostramos el resultado por consola...
-    console.log(id);
-    //Enviamos una respuesta... 
-    res.send('Laptop editado...');
-    */
-    //Creamos una variable que almacene el ID del laptop a editar...
-    const id = req.params.phw_ipt;
-    //Enviamos el query con el ID a consultar...
-    const portatilIHW = await pool.query('SELECT * FROM portatiles_hardware WHERE phw_ipt = ?', [id]);
-    //Enviamos el query con el ID a consultar...
-    const portatilIDA = await pool.query('SELECT * FROM portatiles_dispositivos_adicionales WHERE pda_ipt = ?', [id]);
-    //Enviamos el query con el ID a consultar...
-    const portatilISW = await pool.query('SELECT * FROM portatiles_software WHERE psw_ipt = ?', [id]);
-    //Enviamos el query con el ID a consultar...
-    const portatilISR = await pool.query('SELECT * FROM portatiles_soporte_remoto WHERE psr_ipt = ?', [id]);
-    //Enviamos el query con el ID a consultar...
-    const portatilIIA = await pool.query('SELECT * FROM portatiles_informacion_administrativa WHERE pia_ipt = ?', [id]);
-    /*
-    //Mostramos el resultado por consola...
-    console.log(portatilHW[0]);
-    */
-    //Renderisa en la ventana edit el contenido de software base
-    res.render('laptops/info', { 
-        portatilIHW: portatilIHW[0], 
-        portatilISW: portatilISW[0], 
-        portatilIDA: portatilIDA[0], 
-        portatilISR: portatilISR[0],
-        portatilIIA: portatilIIA[0] 
+
+router.get('/assign/:por_id_interno', isLoggedIn, async (req, res) => {
+    const id = req.params.por_id_interno;
+    const portatilAssign = await pool.query('SELECT * FROM portatiles WHERE por_id_interno = ?', [id]);
+    res.render('laptops/assign', {
+        portatilAssign: portatilAssign[0],
     });
-    //Creamos un mensaje con flash-connect
-    req.flash('SearchSwSuccess', 'Esta es la informacion del portatil.');
+});
+
+
+router.post('/assign/:por_id_interno', isLoggedIn, async (req, res) => {
+    const id = req.params.por_id_interno;
+    const { por_id, por_id_interno, por_info_estado, por_info_serial, por_info_marca, por_info_modelo, por_info_procesador_modelo,
+        por_info_procesador_velocidad, por_info_procesador_arquitectura, por_info_memoria_tamano, por_info_memoria_referencia,
+        por_info_disco_tamano, por_info_disco_referencia, por_info_mac_ethernet, por_info_mac_wifi, por_info_observaciones, por_info_ruta_imagen,
+        por_sw_sistema_operativo, por_sw_version_so, por_sw_edicion_so, por_sw_product_id, por_sw_product_key, por_sw_ruta_info,
+        por_soporte_remoto_id, por_soporte_remoto_clave, por_adicional_mouse, por_adicional_padmouse, por_adicional_teclado, por_adicional_base_refrigerante,
+        por_adicional_guaya, por_adicional_clave_guaya, por_adicional_pantalla, por_adicional_adaptador_usb_eth, por_adicional_observaciones_dispositivos,
+        por_administrativa_vendedor, por_administrativa_fecha_compra, por_administrativa_costo, por_administrativa_garantia, por_asignacion_consultor,
+        por_asignacion_documento_identidad, por_asignacion_expedicion_documento, por_asignacion_correo_corporativo, por_asignacion_correo_personal,
+        por_asignacion_area, por_asignacion_cargo, por_asignacion_proyecto, por_asignacion_ubicacion, por_asignacion_fecha_asignacion, por_asignacion_observaciones } = req.body;
+    const imageURL = 'http://localhost/repo_dbs_inventory/laptops/' + id;
+    const assignLaptop = {
+        por_id_interno: id,
+        por_info_estado: 'Asignado',
+        por_asignacion_consultor,
+        por_asignacion_documento_identidad,
+        por_asignacion_expedicion_documento,
+        por_asignacion_correo_corporativo,
+        por_asignacion_correo_personal,
+        por_asignacion_area,
+        por_asignacion_cargo,
+        por_asignacion_proyecto,
+        por_asignacion_ubicacion,
+        por_asignacion_fecha_asignacion,
+        por_asignacion_observaciones
+    };
+    //Enviamos nuestra informacion a la BD...
+    await pool.query('UPDATE portatiles set por_id_interno= ?,  por_info_estado= ?,  por_asignacion_consultor= ?, por_asignacion_documento_identidad= ?, por_asignacion_expedicion_documento= ?, por_asignacion_correo_corporativo= ?, por_asignacion_correo_personal= ?, por_asignacion_area= ?, por_asignacion_cargo= ?, por_asignacion_proyecto= ?, por_asignacion_ubicacion= ?, por_asignacion_fecha_asignacion= ?, por_asignacion_observaciones= ? WHERE por_id_interno = ?', 
+    [assignLaptop.por_id_interno,  assignLaptop.por_info_estado,  assignLaptop.por_asignacion_consultor, assignLaptop.por_asignacion_documento_identidad, assignLaptop.por_asignacion_expedicion_documento, assignLaptop.por_asignacion_correo_corporativo, assignLaptop.por_asignacion_correo_personal, assignLaptop.por_asignacion_area, assignLaptop.por_asignacion_cargo, assignLaptop.por_asignacion_proyecto, assignLaptop.por_asignacion_ubicacion, assignLaptop.por_asignacion_fecha_asignacion, assignLaptop.por_asignacion_observaciones, id]);
+    req.flash('AddSwSuccess', 'El equipo se ha asignado correctamente.');
+    //Redireccionamos a la ruta de inicio...
+    res.redirect('/laptops');
 });
 
 

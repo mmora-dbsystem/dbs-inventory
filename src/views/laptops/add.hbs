@@ -18,14 +18,14 @@
                                 <div class="col-3">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">ID Interno: </span>
-                                        <input type="text" name="phw_ipt" class="form-control" placeholder="000PT..."
+                                        <input type="text" name="por_id_interno" class="form-control" placeholder="000PT..."
                                             autofocus>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Serial: </span>
-                                        <input type="text" name="phw_ser" class="form-control" placeholder="XXXXX...">
+                                        <input type="text" name="por_info_serial" class="form-control" placeholder="XXXXX...">
                                     </div>
                                 </div>
                             </div>
@@ -33,13 +33,13 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Marca: </span>
-                                        <input type="text" name="phw_hma" class="form-control" placeholder="Lenovo...">
+                                        <input type="text" name="por_info_marca" class="form-control" placeholder="Lenovo...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Modelo: </span>
-                                        <input type="text" name="phw_hmo" class="form-control"
+                                        <input type="text" name="por_info_modelo" class="form-control"
                                             placeholder="ThinkPad T14 G1...">
                                     </div>
                                 </div>
@@ -48,21 +48,21 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Procesador: </span>
-                                        <input type="text" name="phw_hmp" class="form-control"
+                                        <input type="text" name="por_info_procesador_modelo" class="form-control"
                                             placeholder="Intel(R) Core(TM) I5-7200...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Velocidad: </span>
-                                        <input type="text" name="phw_hvp" class="form-control"
+                                        <input type="text" name="por_info_procesador_velocidad" class="form-control"
                                             placeholder="2.70 GHz...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Arquitectura: </span>
-                                        <select name="phw_hap" class="form-select form-control">
+                                        <select name="por_info_procesador_arquitectura" class="form-select form-control">
                                             <option value="x32">x32</option>
                                             <option value="x64" selected>x64</option>
                                         </select>
@@ -73,25 +73,25 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Memoria RAM: </span>
-                                        <input type="text" name="phw_hmt" class="form-control" placeholder="16 GB...">
+                                        <input type="text" name="por_info_memoria_tamano" class="form-control" placeholder="16 GB...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Tipo RAM: </span>
-                                        <input type="text" name="phw_hmr" class="form-control" placeholder="DDR4...">
+                                        <input type="text" name="por_info_memoria_referencia" class="form-control" placeholder="DDR4...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Disco duro: </span>
-                                        <input type="text" name="phw_hdt" class="form-control" placeholder="500 GB...">
+                                        <input type="text" name="por_info_disco_tamano" class="form-control" placeholder="500 GB...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Tipo de disco: </span>
-                                        <select name="phw_hdr" class="form-select form-control">
+                                        <select name="por_info_disco_referencia" class="form-select form-control">
                                             <option value="SDD">SDD</option>
                                             <option value="HDD" selected>HDD</option>
                                         </select>
@@ -102,14 +102,14 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">MAC Ethernet: </span>
-                                        <input type="text" name="phw_hme" class="form-control"
+                                        <input type="text" name="por_info_mac_ethernet" class="form-control"
                                             placeholder="00:00:00:00:00:00">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">MAC WIFI: </span>
-                                        <input type="text" name="phw_hmw" class="form-control"
+                                        <input type="text" name="por_info_mac_wifi" class="form-control"
                                             placeholder="00:00:00:00:00:00">
                                     </div>
                                 </div>
@@ -118,19 +118,12 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Observaciones: </span>
                                     <div class="col">
-                                        <textarea name="phw_obs" rows="2" class="form-control"
+                                        <textarea name="por_info_observaciones" rows="2" class="form-control"
                                             placeholder="Desgaste por uso, etc..."></textarea>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">URL Imagen del equipo: </span>
-                                        <input name="phw_img" type="url" class="form-control" placeholder="http://...">
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                         <br>
                         <div class="form-control">
@@ -141,7 +134,7 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Mouse: </span>
-                                        <select name="pda_mou" class="form-select form-control">
+                                        <select name="por_adicional_mouse" class="form-select form-control">
                                             <option value="SI">SI</option>
                                             <option value="NO" selected>NO</option>
                                         </select>
@@ -150,7 +143,7 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">PadMouse: </span>
-                                        <select name="pda_pmo" class="form-select form-control">
+                                        <select name="por_adicional_padmouse" class="form-select form-control">
                                             <option value="SI">SI</option>
                                             <option value="NO" selected>NO</option>
                                         </select>
@@ -159,7 +152,7 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Teclado: </span>
-                                        <select name="pda_tec" class="form-select form-control">
+                                        <select name="por_adicional_teclado" class="form-select form-control">
                                             <option value="SI">SI</option>
                                             <option value="NO" selected>NO</option>
                                         </select>
@@ -168,7 +161,7 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Base Refrigerante: </span>
-                                        <select name="pda_bas" class="form-select form-control">
+                                        <select name="por_adicional_base_refrigerante" class="form-select form-control">
                                             <option value="SI">SI</option>
                                             <option value="NO" selected>NO</option>
                                         </select>
@@ -179,7 +172,7 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Guaya: </span>
-                                        <select name="pda_gua" class="form-select form-control">
+                                        <select name="por_adicional_guaya" class="form-select form-control">
                                             <option value="SI">SI</option>
                                             <option value="NO" selected>NO</option>
                                         </select>
@@ -188,13 +181,13 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Clave guaya: </span>
-                                        <input type="text" name="pda_cgu" class="form-control" placeholder="0000...">
+                                        <input type="text" name="por_adicional_clave_guaya" class="form-control" placeholder="0000...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Pantalla: </span>
-                                        <select name="pda_pan" class="form-select form-control">
+                                        <select name="por_adicional_pantalla" class="form-select form-control">
                                             <option value="SI">SI</option>
                                             <option value="NO" selected>NO</option>
                                         </select>
@@ -203,7 +196,7 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Ethernet-USB: </span>
-                                        <select name="pda_uet" class="form-select form-control">
+                                        <select name="por_adicional_adaptador_usb_eth" class="form-select form-control">
                                             <option value="SI">SI</option>
                                             <option value="NO" selected>NO</option>
                                         </select>
@@ -214,7 +207,7 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Observaciones: </span>
-                                        <textarea name="pda_obs" rows="2" class="form-control"
+                                        <textarea name="por_adicional_observaciones_dispositivos" rows="2" class="form-control"
                                             placeholder="Mouse inalambrico, etc..."></textarea>
                                     </div>
                                 </div>
@@ -229,21 +222,21 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Sistema Operativo: </span>
-                                        <input type="text" name="psw_son" class="form-control"
+                                        <input type="text" name="por_sw_sistema_operativo" class="form-control"
                                             placeholder="Windows - Linux...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">OS Version: </span>
-                                        <input type="text" name="psw_sov" class="form-control"
+                                        <input type="text" name="por_sw_version_so" class="form-control"
                                             placeholder="Vista, 10, Centos...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">OS Edition: </span>
-                                        <input type="text" name="psw_soe" class="form-control"
+                                        <input type="text" name="por_sw_edicion_so" class="form-control"
                                             placeholder="SL, Pro, Lite...">
                                     </div>
                                 </div>
@@ -252,14 +245,14 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">OS Product ID: </span>
-                                        <input type="text" name="psw_soi" class="form-control"
+                                        <input type="text" name="por_sw_product_id" class="form-control"
                                             placeholder="XXXXX-XXXXX-XXXXX-AAOEM...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">OS Key product: </span>
-                                        <input type="text" name="psw_sok" class="form-control"
+                                        <input type="text" name="por_sw_product_key" class="form-control"
                                             placeholder="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX...">
                                     </div>
                                 </div>
@@ -268,7 +261,7 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Ruta archivo regedit: </span>
-                                        <input type="url" name="psw_ibi" class="form-control" placeholder="http://...">
+                                        <input type="url" name="por_sw_ruta_info" class="form-control" placeholder="http://...">
                                     </div>
                                 </div>
                             </div>
@@ -282,14 +275,14 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">ID AnyDesk: </span>
-                                        <input type="text" name="psr_ida" class="form-control"
+                                        <input type="text" name="por_soporte_remoto_id" class="form-control"
                                             placeholder="XXX XXX XXX...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Clave AnyDesk: </span>
-                                        <input type="text" name="psr_cla" class="form-control"
+                                        <input type="text" name="por_soporte_remoto_clave" class="form-control"
                                             placeholder="Db830039811XXX*...">
                                     </div>
                                 </div>
@@ -304,13 +297,13 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Proveedor: </span>
-                                        <input type="text" name="pia_ven" class="form-control" placeholder="Nephix...">
+                                        <input type="text" name="por_administrativa_vendedor" class="form-control" placeholder="Nephix...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Fecha de compra: </span>
-                                        <input type="date" name="pia_fco" class="form-control" id="start"
+                                        <input type="date" name="por_administrativa_fecha_compra" class="form-control" id="start"
                                             name="trip-start" min="2000-01-01" max="2100-12-31">
                                     </div>
                                 </div>
@@ -319,14 +312,14 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Valor del equipo: </span>
-                                        <input type="text" name="pia_cos" class="form-control"
+                                        <input type="text" name="por_administrativa_costo" class="form-control"
                                             placeholder="$2'500.000...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Tiempo de garantia: </span>
-                                        <input type="text" name="pia_gar" class="form-control" placeholder="3 Años...">
+                                        <input type="text" name="por_administrativa_garantia" class="form-control" placeholder="3 Años...">
                                     </div>
                                 </div>
                             </div>

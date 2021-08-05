@@ -11,29 +11,29 @@ const helpers = require('../lib/helpers');
 //Creamos autenticaciones de forma local...
 passport.use('local.signup', new LocalStrategy({
     //Definimos el usuario...
-    usernameField: 'usu_cco',
+    usernameField: 'usu_correo_corporativo',
     //Definimos la contraseña...
-    passwordField: 'usu_cla',
+    passwordField: 'usu_clave',
     //Definimos si recibira mas datos...
     passReqToCallback: true
     //Definimos la funcion que recibira los parametros...
-}, async (req, usu_cco, usu_cla, done) => {
+}, async (req, usu_correo_corporativo, usu_clave, done) => {
     //Creamos una variable para el estado del usuario
     var estadoUsuario = 'Activo';
     //Creamos un req.body con los campos no invocados...
-    const { usu_id, usu_nom, usu_ape, usu_cpe, usu_tus, usu_eus } = req.body;
+    const { usu_id, usu_nombres, usu_apellidos, usu_correo_personal, usu_tipo_usuario, usu_estado_usuario } = req.body;
     console.log(req.body);
     const newUser = {
-        usu_cco,
-        usu_cla,
-        usu_nom,
-        usu_ape,
-        usu_cpe, 
-        usu_tus, 
-        usu_eus: estadoUsuario
+        usu_correo_corporativo,
+        usu_clave,
+        usu_nombres,
+        usu_apellidos,
+        usu_correo_personal,
+        usu_tipo_usuario, 
+        usu_estado_usuario: estadoUsuario
     };
     //Ciframos la contraseña...
-    newUser.usu_cla = await helpers.encryptPassword(usu_cla);
+    newUser.usu_clave= await helpers.encryptPassword(usu_clave);
     //Enviamos la informacion a la BD...
     const result = await pool.query('INSERT INTO usuarios SET ?', [newUser]);
     newUser.usu_id = result.insertId;
@@ -51,32 +51,32 @@ passport.use('local.signup', new LocalStrategy({
 //Creamos el logueo de forma local...
 passport.use('local.signin', new LocalStrategy({
     //Recibimos el usuario...
-    usernameField: 'usu_cco',
+    usernameField: 'usu_correo_corporativo',
     //Recibimos la contraseña...
-    passwordField: 'usu_cla',
+    passwordField: 'usu_clave',
     //Habilitamos el pasar mas datos...
     passReqToCallback: true
-}, async(req, usu_cco, usu_cla, done) => {
+}, async(req, usu_correo_corporativo, usu_clave, done) => {
     /*
     //Validamos por consola...
     console.log(req.body);
     //Validamos por consola...
-    console.log(usu_cco);
+    console.log(usu_correo_corporativo);
     //Validamos por consola...
-    console.log(usu_cla);
+    console.log(usu_clave);
     */
    //Validamos el usuario que esta iniciando sesion...
-    const rows = await pool.query('SELECT * FROM usuarios WHERE usu_cco = ?', [usu_cco]);
+    const rows = await pool.query('SELECT * FROM usuarios WHERE usu_correo_corporativo = ?', [usu_correo_corporativo]);
     //Validamos si el usuario encontrado existe...
     if (rows.length > 0) {
         //Creamos una variable para el usuario encontrado...
         const user = rows[0];
         //Le pasamos la clave capturada al validador de cifrado de claves...
-        const validePassword = await helpers.matchPassword(usu_cla, user.usu_cla);
+        const validePassword = await helpers.matchPassword(usu_clave, user.usu_clave);
         //Validamos si la clave es correcta
         if(validePassword){
             //USU y CLA OK, Pasamos los datos...
-            done (null, user, req.flash('MensajeOK', 'Bienvenid@: ' + user.usu_nom + ' ' + user.usu_ape + '.'));
+            done (null, user, req.flash('MensajeOK', 'Bienvenid@: ' + user.usu_nombres + ' ' + user.usu_apellidos + '.'));
         } else {
             //En caso de error en clave...
             done(null, false, req.flash('MensajeError', 'ERROR: Contraseña incorrecta.'));
