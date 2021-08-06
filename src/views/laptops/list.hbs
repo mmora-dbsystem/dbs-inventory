@@ -6,11 +6,6 @@
                 Agregar portatil
             </a>
         </div>
-        <div class="col d-grid gap-2 col-2 mx-auto">
-            <a href="/laptops/browser/{{por_id_interno}}" class="btn btn-secondary">
-                Buscar portatil asignado
-            </a>
-        </div>
         <p>
         </p>
         {{#each laptopsHW}}
@@ -26,12 +21,13 @@
                     </h2>
                     <p class="m-2">
                     <h3>
-                        <b>{{por_info_estado}}</b> 
+                        <b>{{por_info_estado}}</b>
                         <font color="blue"><i><u>{{por_asignacion_correo_corporativo}}</u></i></font>
                     </h3>
                     <br>
                     <div class="carousel">
-                        <div id="carousel-{{por_id_interno}}" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                        <div id="carousel-{{por_id_interno}}" class="carousel carousel-dark slide"
+                            data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active" data-bs-interval="10000">
                                     <img style="height:100px; width: 120px;" src="{{por_info_ruta_imagen}}\0.jpg"
@@ -52,13 +48,13 @@
                                     <br>
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{por_id_interno}}"
-                                data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carousel-{{por_id_interno}}" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{por_id_interno}}"
-                                data-bs-slide="next">
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carousel-{{por_id_interno}}" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
@@ -69,9 +65,11 @@
                     <br>
                     {{por_info_serial}}
                     <br>
-                    {{por_info_procesador_modelo}} "{{por_info_procesador_velocidad}}" - {{por_info_procesador_arquitectura}}
+                    {{por_info_procesador_modelo}} "{{por_info_procesador_velocidad}}" -
+                    {{por_info_procesador_arquitectura}}
                     <br>
-                    {{por_info_memoria_referencia}} - {{por_info_memoria_tamano}} // {{por_info_disco_referencia}} - {{por_info_disco_tamano}}
+                    {{por_info_memoria_referencia}} - {{por_info_memoria_tamano}} // {{por_info_disco_referencia}} -
+                    {{por_info_disco_tamano}}
                     <br>
                     <br>
                     <a href="/laptops/edit/{{por_id_interno}}" class="btn btn-warning">
@@ -80,9 +78,11 @@
                     <a href="/laptops/delete/{{por_id}}" class="btn btn-danger">
                         Eliminar
                     </a>
+                   
                     <a href="/laptops/assign/{{por_id_interno}}" class="btn btn-success">
-                        Asignar
+                        Gestionar
                     </a>
+                   
                 </div>
             </div>
         </div>

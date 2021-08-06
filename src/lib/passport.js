@@ -7,7 +7,6 @@ const pool = require('../database');
 //Importamos helpers...
 const helpers = require('../lib/helpers');
 
-
 //Creamos autenticaciones de forma local...
 passport.use('local.signup', new LocalStrategy({
     //Definimos el usuario...
@@ -22,7 +21,6 @@ passport.use('local.signup', new LocalStrategy({
     var estadoUsuario = 'Activo';
     //Creamos un req.body con los campos no invocados...
     const { usu_id, usu_nombres, usu_apellidos, usu_correo_personal, usu_tipo_usuario, usu_estado_usuario } = req.body;
-    console.log(req.body);
     const newUser = {
         usu_correo_corporativo,
         usu_clave,

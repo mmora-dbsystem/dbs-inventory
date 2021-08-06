@@ -5,13 +5,13 @@
                 <div class="card-title text-center">
                     <h3>
                         <br>
-                        ASIGNAR PORTATIL ({{portatilAssign.por_id_interno}})
+                        DESASIGNAR PORTATIL ({{unassignedHW.por_id_interno}})
                     </h3>
                 </div>
                 <div class="card-body">
-                    <form action="/laptops/assign/{{portatilAssign.por_id_interno}}" method="POST">
+                    <form action="/laptops/deallocate/{{unassignedHW.por_id_interno}}" method="POST">
                         <div class="form-control">
-                            <div class="row">
+                             <div class="row">
                                 <h4>
                                     Informacion consultor:
                                 </h4>
@@ -20,15 +20,13 @@
                                 <div class="col-3">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">ID Interno: </span>
-                                        <input disabled type="text" name="por_id_interno" class="form-control"
-                                            value="{{portatilAssign.por_id_interno}}">
+                                        <input disabled type="text" name="por_id_interno" class="form-control" value="{{unassignedHW.por_id_interno}}">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Consultor: </span>
-                                        <input autofocus type="text" name="por_asignacion_consultor"
-                                            class="form-control" placeholder="Nombre(s) Apellido(s)...">
+                                        <input disabled type="text" name="por_asignacion_consultor" value="{{unassignedHW.por_asignacion_consultor}}" class="form-control" placeholder="Nombre(s) Apellido(s)...">
                                     </div>
                                 </div>
                             </div>
@@ -36,15 +34,14 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Documento de identidad: </span>
-                                        <input type="text" name="por_asignacion_documento_identidad"
-                                            class="form-control" placeholder="1'234.567.890...">
+                                        <input disabled type="text" name="por_asignacion_documento_identidad" value="{{unassignedHW.por_asignacion_documento_identidad}}" class="form-control" placeholder="1'234.567.890...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Lugar de expedicion: </span>
-                                        <input type="text" name="por_asignacion_expedicion_documento"
-                                            class="form-control" placeholder="Bogotá...">
+                                        <input  disabled type="text" name="por_asignacion_expedicion_documento" value="{{unassignedHW.por_asignacion_expedicion_documento}}" class="form-control"
+                                            placeholder="Bogotá...">
                                     </div>
                                 </div>
                             </div>
@@ -52,14 +49,14 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Correo corporativo: </span>
-                                        <input type="mail" name="por_asignacion_correo_corporativo" class="form-control"
+                                        <input  disabled type="mail" name="por_asignacion_correo_corporativo" value="{{unassignedHW.por_asignacion_correo_corporativo}}" class="form-control"
                                             placeholder="correo@db-system.com...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Correo personal: </span>
-                                        <input type="mail" name="por_asignacion_correo_personal" class="form-control"
+                                        <input  disabled type="mail" name="por_asignacion_correo_personal" value="{{unassignedHW.por_asignacion_correo_personal}}" class="form-control"
                                             placeholder="correo@correo.com...">
                                     </div>
                                 </div>
@@ -68,15 +65,13 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Area: </span>
-                                        <input type="text" name="por_asignacion_area" class="form-control"
-                                            placeholder="Desarrollo...">
+                                        <input  disabled type="text" name="por_asignacion_area" value="{{unassignedHW.por_asignacion_area}}" class="form-control" placeholder="Desarrollo...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Cargo: </span>
-                                        <input type="text" name="por_asignacion_cargo" class="form-control"
-                                            placeholder=".Net...">
+                                        <input  disabled type="text" name="por_asignacion_cargo" value="{{unassignedHW.por_asignacion_cargo}}" class="form-control" placeholder=".Net...">
                                     </div>
                                 </div>
                             </div>
@@ -84,22 +79,21 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Proyecto: </span>
-                                        <input type="text" name="por_asignacion_proyecto" class="form-control"
-                                            placeholder="Min. Hacienda...">
+                                        <input  disabled type="text" name="por_asignacion_proyecto" value="{{unassignedHW.por_asignacion_proyecto}}" class="form-control" placeholder="Min. Hacienda...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Ubicacion: </span>
-                                        <input type="text" name="por_asignacion_ubicacion" class="form-control"
+                                        <input  disabled type="text" name="por_asignacion_ubicacion" value="{{unassignedHW.por_asignacion_ubicacion}}" class="form-control"
                                             placeholder="Bogotá">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Fecha de asignacion: </span>
-                                        <input type="date" name="por_asignacion_fecha_asignacion" class="form-control"
-                                            id="start" name="trip-start" min="2000-01-01" max="2100-12-31">
+                                        <input  disabled type="date" name="por_asignacion_fecha_asignacion" value="{{unassignedHW.por_asignacion_fecha_asignacion}}" class="form-control" id="start"
+                                            name="trip-start" min="2000-01-01" max="2100-12-31">
                                     </div>
                                 </div>
                             </div>
@@ -107,12 +101,11 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Observaciones: </span>
-                                        <input type="text" name="por_asignacion_observaciones" class="form-control"
+                                        <input  disabled type="text" name="por_asignacion_observaciones" value="{{unassignedHW.por_asignacion_observaciones}}" class="form-control"
                                             placeholder="Equipo con desgaste por uso...">
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <div class="form-control">
                             <div class="row">
@@ -124,36 +117,32 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Mouse: </span>
-                                        <select name="por_adicional_mouse" class="form-select form-control">
-                                            <option value="SI">SI</option>
-                                            <option value="NO" selected>NO</option>
+                                        <select  disabled name="por_adicional_mouse" class="form-select form-control">
+                                            <option value="{{unassignedHW.por_adicional_mouse}}" selected>{{unassignedHW.por_adicional_mouse}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">PadMouse: </span>
-                                        <select name="por_adicional_padmouse" class="form-select form-control">
-                                            <option value="SI">SI</option>
-                                            <option value="NO" selected>NO</option>
+                                        <select disabled value="{{unassignedHW.por_adicional_padmouse}}"name="por_adicional_padmouse" class="form-select form-control">
+                                             <option value="{{unassignedHW.por_adicional_padmouse}}" selected>{{unassignedHW.por_adicional_padmouse}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Teclado: </span>
-                                        <select name="por_adicional_teclado" class="form-select form-control">
-                                            <option value="SI">SI</option>
-                                            <option value="NO" selected>NO</option>
+                                        <select disabled value="{{unassignedHW.por_adicional_teclado}}"name="por_adicional_teclado" class="form-select form-control">
+                                             <option value="{{unassignedHW.por_adicional_teclado}}" selected>{{unassignedHW.por_adicional_teclado}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Base Refrigerante: </span>
-                                        <select name="por_adicional_base_refrigerante" class="form-select form-control">
-                                            <option value="SI">SI</option>
-                                            <option value="NO" selected>NO</option>
+                                        <select disabled value="{{unassignedHW.por_adicional_base_refrigerante}}"name="por_adicional_base_refrigerante" class="form-select form-control">
+                                             <option value="{{unassignedHW.por_adicional_base_refrigerante}}" selected>{{unassignedHW.por_adicional_base_refrigerante}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -162,34 +151,31 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Guaya: </span>
-                                        <select name="por_adicional_guaya" class="form-select form-control">
-                                            <option value="SI">SI</option>
-                                            <option value="NO" selected>NO</option>
+                                        <select disabled value="{{unassignedHW.por_adicional_guaya}}"name="por_adicional_guaya" class="form-select form-control">
+                                             <option value="{{unassignedHW.por_adicional_guaya}}" selected>{{unassignedHW.por_adicional_guaya}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Clave guaya: </span>
-                                        <input type="text" name="por_adicional_clave_guaya" class="form-control"
+                                        <input disabled value="{{unassignedHW.por_adicional_clave_guaya}}" type="text" name="por_adicional_clave_guaya" class="form-control"
                                             placeholder="0000...">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Pantalla: </span>
-                                        <select name="por_adicional_pantalla" class="form-select form-control">
-                                            <option value="SI">SI</option>
-                                            <option value="NO" selected>NO</option>
+                                        <select disabled value="{{unassignedHW.por_adicional_pantalla}}"name="por_adicional_pantalla" class="form-select form-control">
+                                             <option value="{{unassignedHW.por_adicional_pantalla}}" selected>{{unassignedHW.por_adicional_pantalla}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Ethernet-USB: </span>
-                                        <select name="por_adicional_adaptador_usb_eth" class="form-select form-control">
-                                            <option value="SI">SI</option>
-                                            <option value="NO" selected>NO</option>
+                                        <select disabled value="{{unassignedHW.por_adicional_adaptador_usb_eth}}"name="por_adicional_adaptador_usb_eth" class="form-select form-control">
+                                             <option value="{{unassignedHW.por_adicional_adaptador_usb_eth}}" selected>{{unassignedHW.por_adicional_adaptador_usb_eth}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -198,8 +184,8 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Observaciones: </span>
-                                        <textarea name="por_adicional_observaciones_dispositivos" rows="2"
-                                            class="form-control" placeholder="Mouse inalambrico, etc..."></textarea>
+                                        <textarea disabled name="por_adicional_observaciones_dispositivos" rows="2"
+                                            class="form-control" placeholder="Mouse inalambrico, etc...">{{unassignedHW.por_adicional_observaciones_dispositivos}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -207,7 +193,7 @@
                         <br>
                         <div class="form-group text-center">
                             <button class="btn btn-success btn-block">
-                                ASIGNAR PORTATIL
+                                DESASIGNAR
                             </button>
                             <a href="/laptops" class="btn btn-secondary btn-block">
                                 CANCELAR
