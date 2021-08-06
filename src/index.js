@@ -97,6 +97,7 @@ app.use((req, res, next) => {
 });
 
 
+
 //Rutas...
 //Usamos nuestra ruta inicial...
 app.use(require('./routes/index.js'));
@@ -108,6 +109,9 @@ app.use('/softwares', require('./routes/softwares.js'));
 app.use('/urls', require('./routes/urls.js'));
 //Ruta para el manejo del Inventario de portatiles que enviaremos y o recibiremos en el movimiento de la aplicacion...
 app.use('/laptops', require('./routes/laptops.js'));
+app.use('/desktops', require('./routes/desktops.js'));
+
+
 
 
 //Archivos publicos...

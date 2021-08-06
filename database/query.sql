@@ -89,15 +89,15 @@ CREATE TABLE `portatiles` (
 
 CREATE TABLE `escritorio` (
     `esc_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
-    `esc_id_interno` VARCHAR(100),
+	`esc_id_interno` VARCHAR(100),
 	`esc_info_estado` VARCHAR(100),
     `esc_info_serial` VARCHAR(100),
     `esc_info_marca` VARCHAR(100),
     `esc_info_modelo` VARCHAR(100),
-    `esc_info_modelo_procesador` VARCHAR(100),
-    `esc_info_velocidad_procesador` VARCHAR(100),
-    `esc_info_arquitectura_procesador` VARCHAR(100),
-    `esc_info_tamano_memoria` VARCHAR(100),
+    `esc_info_procesador_modelo` VARCHAR(100),
+    `esc_info_procesador_velocidad` VARCHAR(100),
+    `esc_info_procesador_arquitectura` VARCHAR(100),
+    `esc_info_memoria_tamano` VARCHAR(100),
     `esc_info_memoria_referencia` VARCHAR(100),
     `esc_info_disco_tamano` VARCHAR(100),
     `esc_info_disco_referencia` VARCHAR(100),
@@ -136,20 +136,20 @@ CREATE TABLE `escritorio` (
     `esc_asignacion_proyecto` VARCHAR(100),
     `esc_asignacion_ubicacion` VARCHAR(100),
     `esc_asignacion_fecha_asignacion` VARCHAR(100),
-    `esc_asignacion_observaciones` VARCHAR(100)
+    `esc_asignacion_observaciones` VARCHAR(100)	
 );
 
 CREATE TABLE `servidores` (
-    `ser_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
-    `ser_id_interno` VARCHAR(100),
+   `ser_id` INT(100) NOT NULL auto_increment PRIMARY KEY,
+	`ser_id_interno` VARCHAR(100),
 	`ser_info_estado` VARCHAR(100),
     `ser_info_serial` VARCHAR(100),
     `ser_info_marca` VARCHAR(100),
     `ser_info_modelo` VARCHAR(100),
-    `ser_info_modelo_procesador` VARCHAR(100),
-    `ser_info_velocidad_procesador` VARCHAR(100),
-    `ser_info_arquitectura_procesador` VARCHAR(100),
-    `ser_info_tamano_memoria` VARCHAR(100),
+    `ser_info_procesador_modelo` VARCHAR(100),
+    `ser_info_procesador_velocidad` VARCHAR(100),
+    `ser_info_procesador_arquitectura` VARCHAR(100),
+    `ser_info_memoria_tamano` VARCHAR(100),
     `ser_info_memoria_referencia` VARCHAR(100),
     `ser_info_disco_tamano` VARCHAR(100),
     `ser_info_disco_referencia` VARCHAR(100),
@@ -163,6 +163,8 @@ CREATE TABLE `servidores` (
     `ser_sw_product_id` VARCHAR(100),
     `ser_sw_product_key` VARCHAR(100),
     `ser_sw_ruta_info` VARCHAR(100),
+	`ser_soporte_remoto_id` VARCHAR(100),
+    `ser_soporte_remoto_clave` VARCHAR(100),
 	`ser_adicional_mouse` VARCHAR(100),
     `ser_adicional_padmouse` VARCHAR(100),  
     `ser_adicional_teclado` VARCHAR(100),    
@@ -186,7 +188,7 @@ CREATE TABLE `servidores` (
     `ser_asignacion_proyecto` VARCHAR(100),
     `ser_asignacion_ubicacion` VARCHAR(100),
     `ser_asignacion_fecha_asignacion` VARCHAR(100),
-    `ser_asignacion_observaciones` VARCHAR(100)
+    `ser_asignacion_observaciones` VARCHAR(100)	
 );
 
 CREATE TABLE `impresoras` (

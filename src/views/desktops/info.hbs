@@ -1,0 +1,420 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="card ">
+                <div class="card-title text-center">
+                    <h3>
+                        <br>
+                        INFORMACION PC ({{desktopsIHW.esc_id_interno}})
+                    </h3>
+                    <br>
+                    <br>
+                    <div class="carousel">
+                        <div id="carousel-{{desktopsIHW.esc_id_interno}}" class="carousel carousel-dark slide"
+                            data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-bs-interval="10000">
+                                    <img style="height:200px; width: 240px;" src="{{desktopsIHW.esc_info_ruta_imagen}}\0.jpg"
+                                        class="rounded mx-autod-block" height: alt="...">
+                                    <br>
+                                    <br>
+                                </div>
+                                <div class="carousel-item" data-bs-interval="2000">
+                                    <img style="height:200px; width: 240px;" src="{{desktopsIHW.esc_info_ruta_imagen}}\1.jpg"
+                                        class="rounded mx-autod-block" alt="...">
+                                    <br>
+                                    <br>
+                                </div>
+                                <div class="carousel-item">
+                                    <img style="height:200px; width: 240px;" src="{{desktopsIHW.esc_info_ruta_imagen}}\2.jpg"
+                                        class="rounded mx-autod-block" alt="...">
+                                    <br>
+                                    <br>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carousel-{{desktopsIHW.esc_id_interno}}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carousel-{{desktopsIHW.esc_id_interno}}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="/desktops/info/{{desktopsIHW.esc_id_interno}}" method="POST">
+                            <div class="form-control">
+                                <h5>
+                                    Informacion de hardware:
+                                </h5>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Estado: </span>
+                                            <select disabled name="esc_info_estado" class="form-select form-control">
+                                                <option value="{{desktopsIHW.esc_info_estado}}" selected>{{desktopsIHW.esc_info_estado}}
+                                                </option>
+                                                <option value="Disponible">Disponible</option>
+                                                <option value="Asignado">Asignado</option>
+                                                <option value="Retirado - Vida Util">Retirado - Vida Util</option>
+                                                <option value="Retirado - Hurto">Retirado - Hurto</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">ID Interno: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_id_interno}}" name="esc_id_interno"
+                                                class="form-control" placeholder="000PT..." autofocus>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Serial: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_info_serial}}" name="esc_info_serial"
+                                                class="form-control" placeholder="XXXXX...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Marca: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_info_marca}}" name="esc_info_marca"
+                                                class="form-control" placeholder="Lenovo...">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Modelo: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_info_modelo}}" name="esc_info_modelo"
+                                                class="form-control" placeholder="ThinkPad T14 G1...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Procesador: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_info_procesador_modelo}}" name="esc_info_procesador_modelo"
+                                                class="form-control" placeholder="Intel(R) Core(TM) I5-7200...">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Velocidad: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_info_procesador_velocidad}}" name="esc_info_procesador_velocidad"
+                                                class="form-control" placeholder="2.70 GHz...">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Arquitectura: </span>
+                                            <select disabled value="{{desktopsIHW.esc_info_procesador_arquitectura}}" name="esc_info_procesador_arquitectura"
+                                                class="form-select form-control">
+                                                <option value="x32">x32</option>
+                                                <option value="x64" selected>x64</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Memoria RAM: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_info_memoria_tamano}}" name="esc_info_memoria_tamano"
+                                                class="form-control" placeholder="16 GB...">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Tipo RAM: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_info_memoria_referencia}}" name="esc_info_memoria_referencia"
+                                                class="form-control" placeholder="DDR4...">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Disco duro: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_info_disco_tamano}}" name="esc_info_disco_tamano"
+                                                class="form-control" placeholder="500 GB...">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Tipo de disco: </span>
+                                            <select disabled name="esc_info_disco_referencia" class="form-select form-control">
+                                                <option value="{{desktopsIHW.esc_info_disco_referencia}}" selected>{{desktopsIHW.esc_info_disco_referencia}}
+                                                </option>
+                                                <option value="SDD">SDD</option>
+                                                <option value="HDD">HDD</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">MAC Ethernet: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_info_mac_ethernet}}" name="esc_info_mac_ethernet"
+                                                class="form-control" placeholder="00:00:00:00:00:00">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">MAC WIFI: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_info_mac_wifi}} " name="esc_info_mac_wifi"
+                                                class="form-control" placeholder="00:00:00:00:00:00">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Observaciones: </span>
+                                        <div class="col">
+                                            <textarea disabled name="esc_info_observaciones" rows="2" class="form-control"
+                                                placeholder="Desgaste por uso, etc...">{{desktopsIHW.esc_info_observaciones}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="form-control">
+                                <h5>
+                                    Dispositivos adicionales:
+                                </h5>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Mouse: </span>
+                                            <select disabled name="esc_adicional_mouse" class="form-select form-control">
+                                                <option value="{{desktopsIHW.esc_adicional_mouse}}" selected>{{desktopsIHW.esc_adicional_mouse}}
+                                                </option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO">NO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">PadMouse: </span>
+                                            <select disabled name="esc_adicional_padmouse" class="form-select form-control">
+                                                <option value="{{desktopsIHW.esc_adicional_padmouse}}" selected>{{desktopsIHW.esc_adicional_padmouse}}
+                                                </option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO">NO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Teclado: </span>
+                                            <select disabled name="esc_adicional_teclado" class="form-select form-control">
+                                                <option value="{{desktopsIHW.esc_adicional_teclado}}" selected>{{desktopsIHW.esc_adicional_teclado}}
+                                                </option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO">NO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Base Refrigerante: </span>
+                                            <select disabled name="esc_adicional_base_refrigerante" class="form-select form-control">
+                                                <option value="{{desktopsIHW.esc_adicional_base_refrigerante}}" selected>{{desktopsIHW.esc_adicional_base_refrigerante}}
+                                                </option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO">NO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Guaya: </span>
+                                            <select disabled name="esc_adicional_guaya" class="form-select form-control">
+                                                <option value="{{desktopsIHW.esc_adicional_guaya}}" selected>{{desktopsIHW.esc_adicional_guaya}}
+                                                </option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO">NO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Clave guaya: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_adicional_clave_guaya}}" name="esc_adicional_clave_guaya"
+                                                class="form-control" placeholder="0000...">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Pantalla: </span>
+                                            <select disabled name="esc_adicional_pantalla" class="form-select form-control">
+                                                <option value="{{desktopsIHW.esc_adicional_pantalla}}" selected>{{desktopsIHW.esc_adicional_pantalla}}
+                                                </option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO">NO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Ethernet-USB: </span>
+                                            <select disabled name="esc_adicional_adaptador_usb_eth" class="form-select form-control">
+                                                <option value="{{desktopsIHW.esc_adicional_adaptador_usb_eth}}" selected>{{desktopsIHW.esc_adicional_adaptador_usb_eth}}
+                                                </option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO">NO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Observaciones: </span>
+                                            <textarea disabled name="esc_adicional_observaciones_dispositivos" rows="2" class="form-control"
+                                                placeholder="Mouse inalambrico, etc...">{{desktopsIHW.esc_adicional_observaciones_dispositivos}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-control">
+                                <h5>
+                                    Informacion de software:
+                                </h5>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Sistema Operativo: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_sw_sistema_operativo}}" name="esc_sw_sistema_operativo"
+                                                class="form-control" placeholder="Windows - Linux...">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">OS Version: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_sw_version_so}} " name="esc_sw_version_so"
+                                                class="form-control" placeholder="Vista, 10, Centos...">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">OS Edition: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_sw_edicion_so}}" name="esc_sw_edicion_so"
+                                                class="form-control" placeholder="SL, Pro, Lite...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">OS Product ID: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_sw_product_id}}" name="esc_sw_product_id"
+                                                class="form-control" placeholder="XXXXX-XXXXX-XXXXX-AAOEM...">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">OS Key product: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_sw_product_key}}" name="esc_sw_product_key"
+                                                class="form-control" placeholder="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Ruta archivo regedit: </span>
+                                            <input disabled type="url" value="{{desktopsIHW.esc_sw_ruta_info}}" name="esc_sw_ruta_info"
+                                                class="form-control" placeholder="http://...">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-control">
+                                <h5>
+                                    Informacion Soporte Remoto:
+                                </h5>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">ID AnyDesk: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_soporte_remoto_id}}" name="esc_soporte_remoto_id"
+                                                class="form-control" placeholder="XXX XXX XXX...">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Clave AnyDesk: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_soporte_remoto_clave}}" name="esc_soporte_remoto_clave"
+                                                class="form-control" placeholder="Db830039811XXX*...">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-control">
+                                <h5>
+                                    Informacion administrativa:
+                                </h5>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Proveedor: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_administrativa_vendedor}}" name="esc_administrativa_vendedor"
+                                                class="form-control" placeholder="Nephix...">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Fecha de compra: </span>
+                                            <input disabled type="date" value="{{desktopsIHW.esc_administrativa_fecha_compra}}" name="esc_administrativa_fecha_compra"
+                                                class="form-control" id="start" name="trip-start" min="2000-01-01"
+                                                max="2100-12-31">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Valor del equipo: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_administrativa_costo}}" name="esc_administrativa_costo"
+                                                class="form-control" placeholder="$2'500.000...">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Tiempo de garantia: </span>
+                                            <input disabled type="text" value="{{desktopsIHW.esc_administrativa_garantia}}" name="esc_administrativa_garantia"
+                                                class="form-control" placeholder="3 Años...">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group text-center">
+                                <a href="/desktops" class="btn btn-secondary btn-block">
+                                    VOLVER
+                                </a>
+                                <a href="/desktops/edit/{{desktopsIHW.esc_id_interno}}" class="btn btn-warning btn-block">
+                                    EDITAR
+                                </a>
+                            </div>
+                            <div class="form-group text-center">
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
