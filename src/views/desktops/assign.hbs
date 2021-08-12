@@ -1,0 +1,221 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="card ">
+                <div class="card-title text-center">
+                    <h3>
+                        <br>
+                        ASIGNAR PC ({{escritorioAssign.esc_id_interno}})
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <form action="/desktops/assign/{{escritorioAssign.esc_id_interno}}" method="POST">
+                        <div class="form-control">
+                            <div class="row">
+                                <h4>
+                                    Informacion consultor:
+                                </h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">ID Interno: </span>
+                                        <input disabled type="text" name="esc_id_interno" class="form-control"
+                                            value="{{escritorioAssign.esc_id_interno}}">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Consultor: </span>
+                                        <input autofocus type="text" name="esc_asignacion_consultor"
+                                            class="form-control" placeholder="Nombre(s) Apellido(s)...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Documento de identidad: </span>
+                                        <input type="text" name="esc_asignacion_documento_identidad"
+                                            class="form-control" placeholder="1'234.567.890...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Lugar de expedicion: </span>
+                                        <input type="text" name="esc_asignacion_expedicion_documento"
+                                            class="form-control" placeholder="Bogotá...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Correo corporativo: </span>
+                                        <input type="mail" name="esc_asignacion_correo_corporativo" class="form-control"
+                                            placeholder="correo@db-system.com...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Correo personal: </span>
+                                        <input type="mail" name="esc_asignacion_correo_personal" class="form-control"
+                                            placeholder="correo@correo.com...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Area: </span>
+                                        <input type="text" name="esc_asignacion_area" class="form-control"
+                                            placeholder="Desarrollo...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Cargo: </span>
+                                        <input type="text" name="esc_asignacion_cargo" class="form-control"
+                                            placeholder=".Net...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Proyecto: </span>
+                                        <input type="text" name="esc_asignacion_proyecto" class="form-control"
+                                            placeholder="Min. Hacienda...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Ubicacion: </span>
+                                        <input type="text" name="esc_asignacion_ubicacion" class="form-control"
+                                            placeholder="Bogotá">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Fecha de asignacion: </span>
+                                        <input type="date" name="esc_asignacion_fecha_asignacion" class="form-control"
+                                            id="start" name="trip-start" min="2000-01-01" max="2100-12-31">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Observaciones: </span>
+                                        <input type="text" name="esc_asignacion_observaciones" class="form-control"
+                                            placeholder="Equipo con desgaste por uso...">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-control">
+                            <div class="row">
+                                <h4>
+                                    Adicionales asignados:
+                                </h4>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Mouse: </span>
+                                        <select name="esc_adicional_mouse" class="form-select form-control">
+                                            <option value="SI">SI</option>
+                                            <option value="NO" selected>NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">PadMouse: </span>
+                                        <select name="esc_adicional_padmouse" class="form-select form-control">
+                                            <option value="SI">SI</option>
+                                            <option value="NO" selected>NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Teclado: </span>
+                                        <select name="esc_adicional_teclado" class="form-select form-control">
+                                            <option value="SI">SI</option>
+                                            <option value="NO" selected>NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Base Refrigerante: </span>
+                                        <select name="esc_adicional_base_refrigerante" class="form-select form-control">
+                                            <option value="SI">SI</option>
+                                            <option value="NO" selected>NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Guaya: </span>
+                                        <select name="esc_adicional_guaya" class="form-select form-control">
+                                            <option value="SI">SI</option>
+                                            <option value="NO" selected>NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Clave guaya: </span>
+                                        <input type="text" name="esc_adicional_clave_guaya" class="form-control"
+                                            placeholder="0000...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Pantalla: </span>
+                                        <select name="esc_adicional_pantalla" class="form-select form-control">
+                                            <option value="SI">SI</option>
+                                            <option value="NO" selected>NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Ethernet-USB: </span>
+                                        <select name="esc_adicional_adaptador_usb_eth" class="form-select form-control">
+                                            <option value="SI">SI</option>
+                                            <option value="NO" selected>NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Observaciones: </span>
+                                        <textarea name="esc_adicional_observaciones_dispositivos" rows="2"
+                                            class="form-control" placeholder="Mouse inalambrico, etc..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group text-center">
+                            <button class="btn btn-success btn-block">
+                                ASIGNAR PC
+                            </button>
+                            <a href="/desktops" class="btn btn-secondary btn-block">
+                                CANCELAR
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

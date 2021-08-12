@@ -361,7 +361,6 @@ router.post('/edit/:por_id_interno', isLoggedIn, async (req, res) => {
 router.get('/assign/:por_id_interno', isLoggedIn, async (req, res) => {
     const id = req.params.por_id_interno;
     const validarAssign = await pool.query('SELECT por_info_estado FROM portatiles WHERE por_id_interno = ?', [id]);
-    console.log(validarAssign[0].por_info_estado);
     if (validarAssign[0].por_info_estado == 'Asignado') {
         res.redirect('/laptops/unassigned/' + id);
     } else {

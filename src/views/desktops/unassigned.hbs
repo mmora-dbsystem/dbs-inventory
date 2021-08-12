@@ -1,0 +1,207 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="card ">
+                <div class="card-title text-center">
+                    <h3>
+                        <br>
+                        DESASIGNAR PC ({{unassignedHW.esc_id_interno}})
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <form action="/desktops/deallocate/{{unassignedHW.esc_id_interno}}" method="POST">
+                        <div class="form-control">
+                             <div class="row">
+                                <h4>
+                                    Informacion consultor:
+                                </h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">ID Interno: </span>
+                                        <input disabled type="text" name="esc_id_interno" class="form-control" value="{{unassignedHW.esc_id_interno}}">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Consultor: </span>
+                                        <input disabled type="text" name="esc_asignacion_consultor" value="{{unassignedHW.esc_asignacion_consultor}}" class="form-control" placeholder="Nombre(s) Apellido(s)...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Documento de identidad: </span>
+                                        <input disabled type="text" name="esc_asignacion_documento_identidad" value="{{unassignedHW.esc_asignacion_documento_identidad}}" class="form-control" placeholder="1'234.567.890...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Lugar de expedicion: </span>
+                                        <input  disabled type="text" name="esc_asignacion_expedicion_documento" value="{{unassignedHW.esc_asignacion_expedicion_documento}}" class="form-control"
+                                            placeholder="Bogotá...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Correo corporativo: </span>
+                                        <input  disabled type="mail" name="esc_asignacion_correo_corporativo" value="{{unassignedHW.esc_asignacion_correo_corporativo}}" class="form-control"
+                                            placeholder="correo@db-system.com...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Correo personal: </span>
+                                        <input  disabled type="mail" name="esc_asignacion_correo_personal" value="{{unassignedHW.esc_asignacion_correo_personal}}" class="form-control"
+                                            placeholder="correo@correo.com...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Area: </span>
+                                        <input  disabled type="text" name="esc_asignacion_area" value="{{unassignedHW.esc_asignacion_area}}" class="form-control" placeholder="Desarrollo...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Cargo: </span>
+                                        <input  disabled type="text" name="esc_asignacion_cargo" value="{{unassignedHW.esc_asignacion_cargo}}" class="form-control" placeholder=".Net...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Proyecto: </span>
+                                        <input  disabled type="text" name="esc_asignacion_proyecto" value="{{unassignedHW.esc_asignacion_proyecto}}" class="form-control" placeholder="Min. Hacienda...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Ubicacion: </span>
+                                        <input  disabled type="text" name="esc_asignacion_ubicacion" value="{{unassignedHW.esc_asignacion_ubicacion}}" class="form-control"
+                                            placeholder="Bogotá">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Fecha de asignacion: </span>
+                                        <input  disabled type="date" name="esc_asignacion_fecha_asignacion" value="{{unassignedHW.esc_asignacion_fecha_asignacion}}" class="form-control" id="start"
+                                            name="trip-start" min="2000-01-01" max="2100-12-31">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Observaciones: </span>
+                                        <input  disabled type="text" name="esc_asignacion_observaciones" value="{{unassignedHW.esc_asignacion_observaciones}}" class="form-control"
+                                            placeholder="Equipo con desgaste por uso...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <div class="row">
+                                <h4>
+                                    Adicionales asignados:
+                                </h4>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Mouse: </span>
+                                        <select  disabled name="esc_adicional_mouse" class="form-select form-control">
+                                            <option value="{{unassignedHW.esc_adicional_mouse}}" selected>{{unassignedHW.esc_adicional_mouse}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">PadMouse: </span>
+                                        <select disabled value="{{unassignedHW.esc_adicional_padmouse}}"name="esc_adicional_padmouse" class="form-select form-control">
+                                             <option value="{{unassignedHW.esc_adicional_padmouse}}" selected>{{unassignedHW.esc_adicional_padmouse}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Teclado: </span>
+                                        <select disabled value="{{unassignedHW.esc_adicional_teclado}}"name="esc_adicional_teclado" class="form-select form-control">
+                                             <option value="{{unassignedHW.esc_adicional_teclado}}" selected>{{unassignedHW.esc_adicional_teclado}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Base Refrigerante: </span>
+                                        <select disabled value="{{unassignedHW.esc_adicional_base_refrigerante}}"name="esc_adicional_base_refrigerante" class="form-select form-control">
+                                             <option value="{{unassignedHW.esc_adicional_base_refrigerante}}" selected>{{unassignedHW.esc_adicional_base_refrigerante}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Guaya: </span>
+                                        <select disabled value="{{unassignedHW.esc_adicional_guaya}}"name="esc_adicional_guaya" class="form-select form-control">
+                                             <option value="{{unassignedHW.esc_adicional_guaya}}" selected>{{unassignedHW.esc_adicional_guaya}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Clave guaya: </span>
+                                        <input disabled value="{{unassignedHW.esc_adicional_clave_guaya}}" type="text" name="esc_adicional_clave_guaya" class="form-control"
+                                            placeholder="0000...">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Pantalla: </span>
+                                        <select disabled value="{{unassignedHW.esc_adicional_pantalla}}"name="esc_adicional_pantalla" class="form-select form-control">
+                                             <option value="{{unassignedHW.esc_adicional_pantalla}}" selected>{{unassignedHW.esc_adicional_pantalla}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Ethernet-USB: </span>
+                                        <select disabled value="{{unassignedHW.esc_adicional_adaptador_usb_eth}}"name="esc_adicional_adaptador_usb_eth" class="form-select form-control">
+                                             <option value="{{unassignedHW.esc_adicional_adaptador_usb_eth}}" selected>{{unassignedHW.esc_adicional_adaptador_usb_eth}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Observaciones: </span>
+                                        <textarea disabled name="esc_adicional_observaciones_dispositivos" rows="2"
+                                            class="form-control" placeholder="Mouse inalambrico, etc...">{{unassignedHW.esc_adicional_observaciones_dispositivos}}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group text-center">
+                            <button class="btn btn-success btn-block">
+                                DESASIGNAR
+                            </button>
+                            <a href="/desktops" class="btn btn-secondary btn-block">
+                                CANCELAR
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
