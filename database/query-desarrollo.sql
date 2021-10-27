@@ -12,7 +12,7 @@ CREATE TABLE `usuarios` (
     `usu_estado_usuario` VARCHAR( 100 )
 );
 
-INSERT INTO `dbs_inventory`.`usuarios` (`usu_id` ,`usu_nombres`, `usu_apellidos` , `usu_correo_corporativo`, `usu_correo_personal`, `usu_clave` , `usu_tipo_usuario` ,`usu_estado_usuario`) 
+INSERT INTO `dbs_inventory_dev`.`usuarios` (`usu_id` ,`usu_nombres`, `usu_apellidos` , `usu_correo_corporativo`, `usu_correo_personal`, `usu_clave` , `usu_tipo_usuario` ,`usu_estado_usuario`) 
 VALUES ('1', 'Administrador', 'DBS Inventory', 'dbsinventory@db-system.com', 'dbsinventory@db-system.com', '$2a$10$kA7ZMG1JrjX3Od.ZdwzkFuhUSq.spfgrs/RPzrCeLM0RYK2gJe6AG', 'Administrador', 'Activo');
 
 CREATE TABLE `urls_ti` (

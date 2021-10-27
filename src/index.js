@@ -28,8 +28,8 @@ const app = express();
 require('./lib/passport.js');
 
 //Configuraciones...
-//Asignamos el puerto 4000 para el servidor de express, siempre y cuando no este en uso...
-app.set('port', process.env.PORT || 4000);
+//Asignamos el puerto 80 para el servidor de express, siempre y cuando no este en uso...
+app.set('port', process.env.PORT || 80);
 //Definimos la ruta de la carpeta de vistas... "__dirname obtiene la ruta donde estoy"
 app.set('views', path.join(__dirname, 'views'));
 //Configuramos las plantillas...
@@ -110,9 +110,7 @@ app.use('/urls', require('./routes/urls.js'));
 //Ruta para el manejo del Inventario de portatiles que enviaremos y o recibiremos en el movimiento de la aplicacion...
 app.use('/laptops', require('./routes/laptops.js'));
 app.use('/desktops', require('./routes/desktops.js'));
-
-
-
+app.use('/servers', require('./routes/servers.js'));
 
 //Archivos publicos...
 //Configuramos la ruta de la carpeta public

@@ -20,8 +20,8 @@ module.exports = {
         password: 'dbsinventory123*',
         //Nombre de la BD...
         //Desarrollo:
-        //database: 'dbs_inventory_dev'
+        database: 'dbs_inventory_dev'
         //Produccion
-        database: 'dbs_inventory'
+        //database: 'dbs_inventory'
     }
 };
