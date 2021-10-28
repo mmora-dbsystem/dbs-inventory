@@ -86,7 +86,7 @@ router.post('/add', isLoggedIn, async (req, res) => {
         por_administrativa_vendedor, por_administrativa_fecha_compra, por_administrativa_costo, por_administrativa_garantia, por_asignacion_consultor,
         por_asignacion_documento_identidad, por_asignacion_expedicion_documento, por_asignacion_correo_corporativo, por_asignacion_correo_personal,
         por_asignacion_area, por_asignacion_cargo, por_asignacion_proyecto, por_asignacion_ubicacion, por_asignacion_fecha_asignacion, por_asignacion_observaciones } = req.body;
-    const imageURL = 'http://localhost/repo_dbs_inventory/laptops/' + por_id_interno;
+    const imageURL = 'http://repo.db-system.com/dbsinventory/img/laptop/' + por_id_interno;
     const repoURL = 'http://repo.db-system.com/dbsinventory/regedit/laptop/' + por_id_interno + '/' + por_id_interno + '.reg' ;
     //Creamos un objeto para un nuevo programa...
     const newLaptopHW = {
@@ -244,7 +244,7 @@ router.post('/edit/:por_id_interno', isLoggedIn, async (req, res) => {
         por_administrativa_vendedor, por_administrativa_fecha_compra, por_administrativa_costo, por_administrativa_garantia, por_asignacion_consultor,
         por_asignacion_documento_identidad, por_asignacion_expedicion_documento, por_asignacion_correo_corporativo, por_asignacion_correo_personal,
         por_asignacion_area, por_asignacion_cargo, por_asignacion_proyecto, por_asignacion_ubicacion, por_asignacion_fecha_asignacion, por_asignacion_observaciones } = req.body;
-    const imageURL = 'http://localhost/repo_dbs_inventory/laptops/' + id;
+    const imageURL = 'http://repo.db-system.com/dbsinventory/img/laptop/' + id;
     const infoAssign = await pool.query('SELECT * FROM portatiles WHERE por_id_interno = ?', [id]);
     //Creamos un objeto para un nuevo programa...
     const editLaptopHW = {
@@ -384,7 +384,7 @@ router.post('/assign/:por_id_interno', isLoggedIn, async (req, res) => {
         por_administrativa_vendedor, por_administrativa_fecha_compra, por_administrativa_costo, por_administrativa_garantia, por_asignacion_consultor,
         por_asignacion_documento_identidad, por_asignacion_expedicion_documento, por_asignacion_correo_corporativo, por_asignacion_correo_personal,
         por_asignacion_area, por_asignacion_cargo, por_asignacion_proyecto, por_asignacion_ubicacion, por_asignacion_fecha_asignacion, por_asignacion_observaciones } = req.body;
-    const imageURL = 'http://localhost/repo_dbs_inventory/laptops/' + id;
+    const imageURL = 'http://repo.db-system.com/dbsinventory/img/laptop/' + id;
     const assignLaptop = {
         por_id_interno: id,
         por_info_estado: 'Asignado',
@@ -461,7 +461,7 @@ router.post('/deallocate/:por_id_interno', isLoggedIn, async (req, res) => {
         por_administrativa_vendedor, por_administrativa_fecha_compra, por_administrativa_costo, por_administrativa_garantia, por_asignacion_consultor,
         por_asignacion_documento_identidad, por_asignacion_expedicion_documento, por_asignacion_correo_corporativo, por_asignacion_correo_personal,
         por_asignacion_area, por_asignacion_cargo, por_asignacion_proyecto, por_asignacion_ubicacion, por_asignacion_fecha_asignacion, por_asignacion_observaciones } = req.body;
-    const imageURL = 'http://localhost/repo_dbs_inventory/laptops/' + id;
+    const imageURL = 'http://repo.db-system.com/dbsinventory/img/laptop/' + id;
     const deallocateLaptop = {
         por_id_interno: id,
         por_info_estado: 'Disponible',
